@@ -7,26 +7,19 @@ export default {
         helvetica: ["Helvetica"],
         kepler: ["kepler-std-display"],
         latino: ["latino-gothic-variable"],
+        ivy: ["kepler-std-display"],
       },
       colors: {
-        beige: "#fff7f2",
-        vianney: {
-          400: "#EDE3EC",
-          500: "#BA90B5",
-          600: "#76236D",
-          700: "#501449",
-        },
-      },
-      gridTemplateColumns: {
-        24: "repeat(24, minmax(0, 1fr))",
-      },
-      gridTemplateRows: {
-        16: "repeat(16, minmax(0, 1fr))",
-        36: "repeat(36, minmax(0, 1fr))",
+        agreen: "#226f54",
+        abeige: "#f2e8cf",
+        ared: "#aa182d",
       },
       screens: {
         xs: "410px",
       },
+    },
+    scale: {
+      flip: "-1",
     },
   },
   plugins: [],

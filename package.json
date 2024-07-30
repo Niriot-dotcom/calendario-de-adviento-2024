@@ -1,5 +1,5 @@
 {
-  "name": "catalogo-web",
+  "name": "calendario-de-adviento-2024",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -30,14 +30,8 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
-    "algoliasearch": "^4.20.0",
     "firebase": "^9.9.0",
-    "firebase-admin": "^11.10.1",
-    "jquery": "^3.7.1",
-    "svelte-algolia-instantsearch": "^0.12.1",
-    "svelte-carousel": "github:vadimkorr/svelte-carousel#pull/142/head",
-    "svelte-tippy": "^1.3.2",
-    "tippy.js": "^6.3.7"
+    "firebase-admin": "^11.10.1"
   },
   "engines": {
     "node": "18.x"
