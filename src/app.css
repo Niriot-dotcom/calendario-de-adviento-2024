@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
 
 input,
 input:before,
@@ -30,4 +31,78 @@ body {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+/* FONTS */
+.font-ohbaby {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-ivy {
+  font-family: "ivypresto", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-latino {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+/*  */
+
+.font-latino-35 {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  /* line-height: 5.875rem; */
+  font-variation-settings:
+    "wght" 20,
+    "wdth" 70,
+    "slnt" 1;
+}
+.font-latino-35-bold {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  /* line-height: 5.875rem; */
+  font-variation-settings:
+    "wght" 52,
+    "wdth" 70,
+    "slnt" 1;
+}
+
+.font-latino-43 {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  /* line-height: 5.875rem; */
+  font-variation-settings:
+    "wght" 20,
+    "wdth" 70,
+    "slnt" 1;
+}
+.font-latino-43-semibold {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  /* line-height: 5.875rem; */
+  font-variation-settings:
+    "wght" 37,
+    "wdth" 70,
+    "slnt" 1;
+}
+
+.font-latino-55 {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  /* line-height: 5.875rem; */
+  font-variation-settings:
+    "wght" 20,
+    "wdth" 70,
+    "slnt" 1;
 }
