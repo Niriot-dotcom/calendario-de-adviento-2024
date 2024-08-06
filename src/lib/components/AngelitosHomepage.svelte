@@ -31,7 +31,10 @@
   </div>
 
   <div class="relative h-full w-1/2">
-    <div class="absolute {classesByPosition[firstPosition].RIGHT}">
+    <div
+      class="absolute {classesByPosition[firstPosition]
+        .RIGHT} w-full flex justify-end"
+    >
       <img
         class="{angelitosSize} h-full object-contain"
         alt="ANGELITA"
