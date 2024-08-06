@@ -14,11 +14,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   <link rel="stylesheet" href="https://use.typekit.net/mmk2zvp.css" />
-  <style>
-    .cart-sidebar {
-      opacity: 1 !important;
-    }
-  </style>
 
   <meta property="og:image" content="/images/share-image.png" />
 </svelte:head>
