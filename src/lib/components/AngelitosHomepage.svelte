@@ -21,7 +21,10 @@
 
 {#if isAngelitoFirst}
   <div class="relative h-full w-1/2 md:w-1/3">
-    <div class="absolute {classesByPosition[firstPosition].LEFT}">
+    <div
+      class="absolute {classesByPosition[firstPosition]
+        .LEFT} animate-bounce-smooth"
+    >
       <img
         class="{angelitosSize} h-full object-contain scale-x-flip"
         alt="ANGELITO"
@@ -33,7 +36,8 @@
   <div class="relative h-full w-1/2 md:w-1/3">
     <div
       class="absolute {classesByPosition[firstPosition]
-        .RIGHT} w-full flex justify-end"
+        .RIGHT} animate-bounce-smooth w-full flex justify-end"
+      style="animation-delay: 0.3s;"
     >
       <img
         class="{angelitosSize} h-full object-contain"
@@ -44,7 +48,10 @@
   </div>
 {:else}
   <div class="relative h-full w-1/2">
-    <div class="absolute {classesByPosition[firstPosition].LEFT}">
+    <div
+      class="absolute {classesByPosition[firstPosition]
+        .LEFT} animate-bounce-smooth"
+    >
       <img
         class="{angelitosSize} h-full object-contain scale-x-flip"
         alt="ANGELITA"
@@ -54,7 +61,10 @@
   </div>
 
   <div class="relative h-full w-1/2">
-    <div class="absolute {classesByPosition[firstPosition].RIGHT}">
+    <div
+      class="absolute {classesByPosition[firstPosition]
+        .RIGHT} animate-bounce-smooth"
+    >
       <img
         class="{angelitosSize} h-full object-contain"
         alt="ANGELITO"

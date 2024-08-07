@@ -21,6 +21,15 @@ const config = {
       screens: {
         xs: "410px",
       },
+      animation: {
+        "bounce-smooth": "bounceSmooth 2s infinite",
+      },
+      keyframes: {
+        bounceSmooth: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
       colors: {
         agreen: "#226f54",
         abeige: "#f2e8cf",
