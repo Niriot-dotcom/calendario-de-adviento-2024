@@ -1,5 +1,5 @@
 export const COLLECTIONS = {
-  Registro: "adviento_registros",
+  Registro: "adviento_whatsapp",
 };
 
 export type USER_SCHEMA = {

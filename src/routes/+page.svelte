@@ -52,8 +52,9 @@
     <TimeRemaining bind:testingHours />
 
     <div class="mb-2 text-ared">
-      <p class="f4-latino leading-none">para conocer nuestro</p>
-      <p class="f1-ivy leading-none">Calendario de Adviento 2024</p>
+      <p class="f4-latino leading-none text-nowrap">para conocer nuestro</p>
+      <p class="f1-ivy leading-none text-nowrap">Calendario de Adviento</p>
+      <p class="f1-ivy leading-none">2024</p>
       <p class="f10-latino leading-none text-agreen mt-1">
         Disponible a partir del
       </p>

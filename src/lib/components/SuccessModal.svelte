@@ -14,6 +14,7 @@
   import { db } from "$lib/firebase";
   export let valid: boolean;
   export let value: E164Number | null;
+  let message: string = "Introduce tu número de teléfono";
 
   async function handleSubmit() {
     if (value === "") return;
@@ -38,9 +39,21 @@
 
     value = "";
   }
+
+  function setMessage() {
+    if (value === "") {
+      message = "Introduce tu número de teléfono";
+    } else {
+      message = "¡Registro exitoso!";
+    }
+  }
 </script>
 
-<AlertDialog.Root closeOnEscape closeOnOutsideClick>
+<AlertDialog.Root
+  closeOnEscape
+  closeOnOutsideClick
+  onOpenChange={() => setMessage()}
+>
   <AlertDialog.Trigger>
     <button
       disabled={!valid}
@@ -72,7 +85,9 @@ px-5 py-2 mt-1 mb-5"
       </div> -->
 
       <AlertDialog.Title>
-        <p class="f6-latino text-agreen">¡Registro exitoso!</p>
+        <p class="f6-latino text-agreen">
+          {message}
+        </p>
         <p class="f5-latino leading-none text-agreen">
           Calendario disponible a partir del 1 de Diciembre del 2024
         </p>

@@ -22,5 +22,5 @@
 
 <div class="my-0 text-agreen">
   <p class="f6-latino">Faltan</p>
-  <p class="f8-ivy leading-tight">{timeRemaining}</p>
+  <p class="f8-ivy leading-tight lg:leading-none">{timeRemaining}</p>
 </div>

@@ -240,6 +240,23 @@ xl	1280px
 2xl	1536px
 */
 
+/* md */
+@media screen and (min-width: 768px) {
+  .f6-latino {
+    font-size: 3rem;
+  }
+  .f8-ivy {
+    font-size: 8rem;
+  }
+  .f9-latino {
+    font-size: 1rem;
+  }
+  .f10-latino {
+    font-size: 1rem;
+  }
+}
+
+/* xl */
 @media screen and (min-width: 1280px) {
   .f6-latino {
     font-size: 2rem;
