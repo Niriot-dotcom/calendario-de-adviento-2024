@@ -72,7 +72,8 @@ px-5 py-2 mt-1 mb-5"
       </div> -->
 
       <AlertDialog.Title>
-        <p class="f4-latino leading-none text-agreen">
+        <p class="f6-latino text-agreen">¡Registro exitoso!</p>
+        <p class="f5-latino leading-none text-agreen">
           Calendario disponible a partir del 1 de Diciembre del 2024
         </p>
       </AlertDialog.Title>
