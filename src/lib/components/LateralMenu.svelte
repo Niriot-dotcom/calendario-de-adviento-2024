@@ -1,9 +1,18 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
+  import CalendarioAdvientoPDF from "$lib/assets/CALENDARIO_ADVIENTO.pdf";
+  import ColoreablesPDF from "$lib/assets/COLOREABLES.pdf";
+
   let toggleMenu: boolean = false;
 
   function handleToggleMenu(event: any) {
     event.preventDefault();
     toggleMenu = !toggleMenu;
+  }
+
+  function handleCloseSession() {
+    toggleMenu = false;
+    goto("/");
   }
 </script>
 
@@ -24,32 +33,42 @@
   >
     <!-- DESCARGA -->
     <div class="text-left ml-5 mt-20">
-      <p class="text-agreen font-ivy text-3xl">Descargables</p>
+      <p class="text-agreen f7-ivy">Descargables</p>
 
       <div>
-        <div class="flex space-x-2 items-center">
+        <a
+          download="CALENDARIO_ADVIENTO.pdf"
+          target="_blank"
+          href={CalendarioAdvientoPDF}
+          class="flex space-x-2 items-center"
+        >
           <img
             class="w-5 h-5 object-cover cursor-pointer"
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
-          <p>Descargar calendario</p>
-        </div>
+          <p>Descargar calendario PDF</p>
+        </a>
 
-        <div class="flex space-x-2 items-center">
+        <a
+          download="COLOREABLES.pdf"
+          target="_blank"
+          href={ColoreablesPDF}
+          class="flex space-x-2 items-center"
+        >
           <img
             class="w-5 h-5 object-cover cursor-pointer"
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
           <p>Descargar coloreables</p>
-        </div>
+        </a>
       </div>
     </div>
 
     <!-- TUTORIAL -->
     <div class="text-left ml-5 my-5">
-      <p class="text-agreen font-ivy text-3xl">Tutorial</p>
+      <p class="text-agreen f7-ivy">Tutorial</p>
 
       <a href="/tutorial" class="flex space-x-2 items-center">
         <img
@@ -64,6 +83,7 @@
     </div>
 
     <button
+      on:click={handleCloseSession}
       class="z-50 mb-20 rounded-xl border border-ared mt-5 px-3 py-1 cursor-pointer hover:text-white hover:bg-ared"
     >
       CERRAR SESIÓN

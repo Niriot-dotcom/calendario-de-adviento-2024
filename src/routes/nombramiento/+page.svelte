@@ -1,11 +1,16 @@
 <script lang="ts">
   import AngelitosHomepage from "$lib/components/AngelitosHomepage.svelte";
   import HeaderAndLogo from "$lib/components/HeaderAndLogo.svelte";
-  import LaMagiaCopy from "$lib/components/LaMagiaCopy.svelte";
-  import TimeRemaining from "$lib/components/TimeRemaining.svelte";
-  import { areThereDaysLeft } from "$lib/utils/getRemainingTime";
 
-  let testingHours = true;
+  let nombreAngelita: string = "";
+  let nombreAngelito: string = "";
+
+  function handleChangeAngelita(newName: string) {
+    nombreAngelita = newName;
+  }
+  function handleChangeAngelito(newName: string) {
+    nombreAngelito = newName;
+  }
 </script>
 
 <div
@@ -30,10 +35,10 @@
     class="absolute md:relative md:my-5 flex flex-col bottom-0 w-full h-[40vh]"
   >
     <!-- FOOTER -->
-    <div class="font-latino-35 my-5 text-agreen">
-      <p class="text-lg leading-none">Para comenzar nombra a tus Angelitos,</p>
-      <p class="text-lg leading-none">
-        ellos <span class="font-bold">te acompañarán durante el Adviento.</span>
+    <div class="f5-latino my-5 text-agreen">
+      <p class="leading-none">Para comenzar nombra a tus Angelitos,</p>
+      <p class="leading-none">
+        ellos <span class="f6-latino">te acompañarán durante el Adviento.</span>
       </p>
     </div>
 
@@ -44,15 +49,25 @@
       <!-- ANGELITA -->
       <div class="flex flex-col md:w-2/6">
         <!-- svelte-ignore a11y-label-has-associated-control -->
-        <label class="text-xl text-nowrap">Nombra a tu Angelita:</label>
-        <input name="nombre-angelita" class="bg-white rounded-full px-3 py-1" />
+        <label class="latino-xl text-nowrap">Nombra a tu Angelita:</label>
+        <input
+          on:input={(e) => handleChangeAngelita(e.target.value)}
+          value={nombreAngelita}
+          name="nombre-angelita"
+          class="bg-white rounded-full px-3 py-1"
+        />
       </div>
 
       <!-- ANGELITO -->
       <div class="flex flex-col md:w-2/6">
         <!-- svelte-ignore a11y-label-has-associated-control -->
-        <label class="text-xl text-nowrap">Nombra a tu Angelito:</label>
-        <input name="nombre-angelita" class="bg-white rounded-full px-3 py-1" />
+        <label class="latino-xl text-nowrap">Nombra a tu Angelito:</label>
+        <input
+          on:input={(e) => handleChangeAngelito(e.target.value)}
+          value={nombreAngelito}
+          name="nombre-angelita"
+          class="bg-white rounded-full px-3 py-1"
+        />
       </div>
     </div>
   </div>

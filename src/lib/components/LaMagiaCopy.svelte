@@ -1,6 +1,6 @@
-<div class="text-ared w-full my-5">
-  <p class="text-xl leading-none">
-    ¡La magia de la <span class="font-ivy font-thin">navidad</span>
+<div class="text-ared w-full my-0 z-10">
+  <p class="f4-latino leading-none">
+    ¡La magia de la <span class="f3-ivy">navidad</span>
   </p>
-  <p class="text-xl leading-none">está cada vez más cerca!</p>
+  <p class="f4-latino leading-none">está cada vez más cerca!</p>
 </div>

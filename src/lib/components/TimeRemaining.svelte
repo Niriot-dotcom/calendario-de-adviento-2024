@@ -20,8 +20,7 @@
   });
 </script>
 
-<div class="my-5 text-agreen">
-  <p class="font-latino-43-bold">Faltan</p>
-  <!-- <p class="font-ivy text-7xl">{getRemainingTime(testingHours)}</p> -->
-  <p class="font-ivy text-7xl">{timeRemaining}</p>
+<div class="my-0 text-agreen">
+  <p class="f6-latino">Faltan</p>
+  <p class="f8-ivy leading-tight">{timeRemaining}</p>
 </div>

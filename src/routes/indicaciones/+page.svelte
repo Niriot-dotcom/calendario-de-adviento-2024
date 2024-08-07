@@ -22,10 +22,10 @@
   <div
     class="absolute md:relative md:my-5 flex flex-col bottom-0 w-full h-[40vh] items-center"
   >
-    <p class="my-5 text-agreen text-5xl font-ivy">¿Cómo funciona?</p>
+    <p class="my-5 text-agreen f7-ivy">¿Cómo funciona?</p>
 
     <!-- STEPS TUTORIAL -->
-    <div class="w-full text-ared flex space-x-12 justify-center">
+    <div class="w-full text-ared f10-latino flex space-x-12 justify-center">
       <!-- STEP 1 -->
       <div class="flex flex-col items-center">
         <div class="w-28 h-28">
@@ -39,7 +39,7 @@
         <div>
           <p>
             1. Accede<br />diariamente del
-            <span class="font-bold">1 al<br />25 de Diciembre.</span>
+            <span class="f9-latino">1 al<br />25 de Diciembre.</span>
           </p>
         </div>
       </div>
@@ -64,7 +64,7 @@
 
         <div>
           <p>
-            2. Da clic <span class="font-bold"
+            2. Da clic <span class="f9-latino"
               >en la<br />ventana con el<br />número
             </span>
             de día<br />correspondiente.
@@ -83,7 +83,7 @@
         </div>
 
         <p>
-          3. Deberás <span class="font-bold"
+          3. Deberás <span class="f9-latino"
             >realizar<br />la buena acción
           </span>
           del<br />día que se indique.
@@ -111,7 +111,7 @@
         </div>
 
         <p>
-          4. <span class="font-bold">Regresa al día<br />siguiente, </span>
+          4. <span class="f9-latino">Regresa al día<br />siguiente, </span>
           se marcará<br />automáticamente<br />con una estrella lo<br />que ya
           realizaste.
         </p>
