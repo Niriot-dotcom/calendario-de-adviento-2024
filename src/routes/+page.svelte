@@ -6,7 +6,7 @@
 </script>
 
 <div
-  class="w-screen h-[94vh] inner-div box-border overflow-y-hidden relative border-[28px] border-ared bg-cover flex flex-col text-center"
+  class="w-screen h-screen inner-div box-border overflow-y-hidden relative border-[12px] border-ared bg-cover flex flex-col text-center"
   style="background: url('/images/FONDOS/FONDO.webp') no-repeat;"
 >
   <!-- HEADER & LOGO -->

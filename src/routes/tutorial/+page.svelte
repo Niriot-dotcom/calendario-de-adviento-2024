@@ -4,12 +4,12 @@
 </script>
 
 <div
-  class="w-screen h-screen bg-no-repeat md:h-screen inner-div box-border overflow-y-hidden relative border-[28px] border-ared flex flex-col text-center items-center justify-center"
+  class="w-screen h-screen bg-no-repeat md:h-screen inner-div box-border overflow-y-hidden relative border-[12px] border-ared flex flex-col text-center items-center justify-center"
   style="background-image: url('/images/FONDOS/CASA.webp'); float: left; background-size: 100vw; background-size: cover; background-position: center;"
 >
   <!-- BACKGROUND TEXTURE -->
   <div
-    class="w-full h-[94vh] md:h-screen absolute inner-div box-border overflow-y-hidden bg-cover opacity-90"
+    class="w-full h-screen md:h-screen absolute inner-div box-border overflow-y-hidden bg-cover opacity-90"
     style="background: url('/images/FONDOS/FONDO.webp') no-repeat;"
   />
 

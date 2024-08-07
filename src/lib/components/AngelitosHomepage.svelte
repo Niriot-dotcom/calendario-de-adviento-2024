@@ -20,7 +20,7 @@
 </script>
 
 {#if isAngelitoFirst}
-  <div class="relative h-full w-1/2">
+  <div class="relative h-full w-1/2 md:w-1/3">
     <div class="absolute {classesByPosition[firstPosition].LEFT}">
       <img
         class="{angelitosSize} h-full object-contain scale-x-flip"
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="relative h-full w-1/2">
+  <div class="relative h-full w-1/2 md:w-1/3">
     <div
       class="absolute {classesByPosition[firstPosition]
         .RIGHT} w-full flex justify-end"
