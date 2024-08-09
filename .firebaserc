@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "mx-vianney-001"
+  },
+  "targets": {
+    "mx-vianney-001": {
+      "hosting": {
+        "calendariodeadviento": [
+          "calendariodeadviento"
+        ]
+      }
+    }
+  }
+}
