@@ -1,21 +1,20 @@
-<script lang="ts">
+<script>
   import "../app.css";
+  import MagicTransition from "$lib/transitions/MagicTransition.svelte";
+  import Header from "$lib/components/Header.svelte";
 
-  // onMount(() => {
-  //       let vendedoraId = $page.url.searchParams.get('adi');
-  //       loadCart();
-  //       loadUser();; // Carga el usuario al inicio
-  //       loadVendedoraFromUrl(vendedoraId);
-  //       mounted = true;
-  //   });
+  export let data;
 </script>
 
-<svelte:head>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  <link rel="stylesheet" href="https://use.typekit.net/mmk2zvp.css" />
+<div class="app">
+  <!-- <Header /> -->
 
-  <meta property="og:image" content="/images/share-image.png" />
-</svelte:head>
-
-<slot />
+  <main
+    class="w-screen h-screen md:h-screen inner-div box-border overflow-y-hidden relative border-[12px] border-ared bg-cover flex flex-col text-center"
+    style="background: url('/images/FONDOS/FONDO.webp') no-repeat;"
+  >
+    <MagicTransition key={data.url} duration={1000}>
+      <slot />
+    </MagicTransition>
+  </main>
+</div>

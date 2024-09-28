@@ -26,7 +26,7 @@
         .LEFT} animate-bounce-smooth"
     >
       <img
-        class="{angelitosSize} h-full object-contain scale-x-flip"
+        class="{angelitosSize} h-full object-contain scale-x-[-1]"
         alt="ANGELITO"
         src="/images/PERSONAJES/ANGELITO.webp"
       />
@@ -53,7 +53,7 @@
         .LEFT} animate-bounce-smooth"
     >
       <img
-        class="{angelitosSize} h-full object-contain scale-x-flip"
+        class="{angelitosSize} h-full object-contain scale-x-[-1]"
         alt="ANGELITA"
         src="/images/PERSONAJES/ANGELITA.webp"
       />
