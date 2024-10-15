@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ANIMATIONS */
+
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+.scale-in-center {
+  -webkit-animation: scale-in-center 3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: scale-in-center 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+input,
+input:before,
+input:after {
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+}
+*,
+*:before,
+*:after {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+/* FONTS */
+.f1-ivy {
+  font-family: "ivypresto-display", serif;
+  font-weight: 100;
+  font-style: italic;
+  /* font-size: 9.524vw; */
+  font-size: 2.262rem;
+}
+.f2-baby {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* font-size: 9.524vw; */
+  font-size: 2.262rem;
+}
+.f3-ivy {
+  font-family: "ivypresto-display", serif;
+  font-weight: 300;
+  font-style: italic;
+  /* font-size: 5.238vw; */
+  font-size: 1.244rem;
+}
+.f4-latino {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-style: normal;
+  /* font-size: 5.238vw; */
+  font-size: 1.244rem;
+  font-variation-settings: "wght" 20, "wdth" 70, "slnt" 1;
+}
+.f5-latino {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-style: normal;
+  /* font-size: 4.095vw; */
+  font-size: 0.973rem;
+  font-variation-settings: "wght" 20, "wdth" 70, "slnt" 1;
+}
+.f6-latino {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-style: normal;
+  /* font-size: 4.095vw; */
+  font-size: 0.973rem;
+  font-variation-settings: "wght" 37, "wdth" 70, "slnt" 1;
+}
+.f7-ivy {
+  font-family: "ivypresto-display", serif;
+  font-weight: 300;
+  font-style: italic;
+  /* font-size: 6.667vw; */
+  font-size: 1.583rem;
+}
+.f8-ivy {
+  font-family: "ivypresto-display", serif;
+  font-weight: 100;
+  font-style: italic;
+  /* font-size: 17.429vw; */
+  font-size: 4.139rem;
+}
+.f9-latino {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-style: normal;
+  /* font-size: 3.333vw; */
+  font-size: 0.792rem;
+  font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
+}
+.f10-latino {
+  font-family: "latino-gothic-variable", sans-serif;
+  font-style: normal;
+  /* font-size: 3.333vw; */
+  font-size: 0.792rem;
+  font-variation-settings: "wght" 20, "wdth" 70, "slnt" 1;
+}
+
+/* MEDIA QUERIES */
+/* xs */
+/* @media screen and (min-width: 410px
+  .f1-ivy {
+    font-size: 2.441rem;
+  }
+} */
+
+/* sm */
+@media screen and (min-width: 640px) {
+  .f1-ivy {
+    font-size: 3rem;
+  }
+  .f2-baby {
+    font-size: 3rem;
+  }
+  /* .f3-ivy {
+    font-size: 1.244rem;
+  } */
+  /* .f4-latino {
+    font-size: 1.244rem;
+  } */
+  /* .f5-latino {
+    font-size: 0.973rem;
+  } */
+  /* .f6-latino {
+    font-size: 0.973rem;
+  } */
+  /* .f7-ivy {
+    font-size: 1.583rem;
+  } */
+  /* .f8-ivy {
+    font-size: 4.139rem;
+  } */
+  /* .f9-latino {
+    font-size: 0.792rem;
+  } */
+  /* .f10-latino {
+    font-size: 0.792rem;
+  } */
+}
+
+/*
+sm	640px
+md	768px
+lg	1024px
+xl	1280px
+2xl	1536px
+*/
+
+/* md */
+@media screen and (min-width: 768px) {
+  .f6-latino {
+    font-size: 1.5rem;
+  }
+  .f8-ivy {
+    font-size: 8rem;
+  }
+  .f9-latino {
+    font-size: 1rem;
+  }
+  .f10-latino {
+    font-size: 1rem;
+  }
+}
+
+/* xl */
+@media screen and (min-width: 1280px) {
+  .f5-latino {
+    font-size: 1.5rem;
+  }
+  .f6-latino {
+    font-size: 2rem;
+  }
+  .f8-ivy {
+    font-size: 8rem;
+  }
+  .f9-latino {
+    font-size: 1rem;
+  }
+  .f10-latino {
+    font-size: 1rem;
+  }
+}
