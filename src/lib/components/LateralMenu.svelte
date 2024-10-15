@@ -1,38 +1,23 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
+  import { AuthHandlers } from "../../stores/AuthStore";
   import CalendarioAdvientoPDF from "$lib/assets/CALENDARIO_ADVIENTO.pdf";
   import ColoreablesPDF from "$lib/assets/COLOREABLES.pdf";
-
-  let toggleMenu: boolean = false;
-
-  function handleToggleMenu(event: any) {
-    event.preventDefault();
-    toggleMenu = !toggleMenu;
-  }
-
-  function handleCloseSession() {
-    toggleMenu = false;
-    goto("/");
-  }
+  import * as Popover from "$lib/components/ui/popover";
 </script>
 
-<button
-  on:click={handleToggleMenu}
-  class="z-50 absolute top-5 left-5 w-12 h-12 cursor-pointer"
->
-  <img
-    class="w-full h-full object-cover cursor-pointer"
-    alt="ICONO MENU"
-    src="/images/ICONOS/MENU.webp"
-  />
-</button>
-
-{#if toggleMenu}
-  <div
-    class="z-40 m-3 rounded-xl absolute top-0 left-0 bg-white w-72 text-ared"
+<Popover.Root>
+  <Popover.Trigger class="z-50 absolute top-5 left-5 w-12 h-12 cursor-pointer">
+    <img
+      class="w-full h-full object-cover cursor-pointer"
+      alt="ICONO MENU"
+      src="/images/ICONOS/MENU.webp"
+    />
+  </Popover.Trigger>
+  <Popover.Content
+    class="z-0 ml-6 mt-3 rounded-xl absolute top-0 left-0 bg-white w-72 text-ared"
   >
     <!-- DESCARGA -->
-    <div class="text-left ml-5 mt-20">
+    <div class="text-left ml-5 mt-5">
       <p class="text-agreen f7-ivy">Descargables</p>
 
       <div>
@@ -70,7 +55,7 @@
     <div class="text-left ml-5 my-5">
       <p class="text-agreen f7-ivy">Tutorial</p>
 
-      <a href="/tutorial" class="flex space-x-2 items-center">
+      <a href="/inicio/tutorial" class="flex space-x-2 items-center">
         <img
           class="w-5 h-5 object-cover cursor-pointer"
           alt="ICONO DESCARGAR"
@@ -82,11 +67,11 @@
       </a>
     </div>
 
-    <button
-      on:click={handleCloseSession}
-      class="z-50 mb-20 rounded-xl border border-ared mt-5 px-3 py-1 cursor-pointer hover:text-white hover:bg-ared"
+    <Popover.Close
+      on:click={AuthHandlers.logout}
+      class="z-50 w-full mb-5 rounded-xl border border-ared mt-5 px-3 py-1 cursor-pointer hover:text-white hover:bg-ared transition-all ease-linear duration-200"
     >
       CERRAR SESIÓN
-    </button>
-  </div>
-{/if}
+    </Popover.Close>
+  </Popover.Content>
+</Popover.Root>
