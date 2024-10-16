@@ -1,15 +1,10 @@
 <script lang="ts">
+  import AngelitaDialog from "$lib/components/AngelitaDialog.svelte";
   import AngelitosHomepage from "$lib/components/AngelitosHomepage.svelte";
   import GridBuenasObras from "$lib/components/GridBuenasObras.svelte";
   import LateralMenu from "$lib/components/LateralMenu.svelte";
   import WhiteLogo from "$lib/components/WhiteLogo.svelte";
   import StarsTransition from "$lib/transitions/StarsTransition.svelte";
-
-  // TODO get from the DB
-  // let untilDate = new Date().getDate();
-  // let userData = {
-  //   lastDayCompleted: 3,
-  // };
 </script>
 
 <!-- {#if $AuthStore.currentUser} -->
@@ -22,6 +17,8 @@
       class="w-full h-screen absolute inner-div box-border overflow-y-hidden bg-cover opacity-90"
       style="background: url('/images/FONDOS/CASA.webp') no-repeat; float: left; background-size: 100vh; background-size: cover; background-position: center; scale: 100%;"
     />
+
+    <!-- <AngelitaDialog /> -->
 
     <!-- LOGO -->
     <WhiteLogo />

@@ -3,10 +3,17 @@
   import CalendarioAdvientoPDF from "$lib/assets/CALENDARIO_ADVIENTO.pdf";
   import ColoreablesPDF from "$lib/assets/COLOREABLES.pdf";
   import * as Popover from "$lib/components/ui/popover";
+
+  function handleCloseSesion() {
+    window.location.href = "/";
+    AuthHandlers.logout();
+  }
 </script>
 
 <Popover.Root>
-  <Popover.Trigger class="z-50 absolute top-5 left-5 w-12 h-12 cursor-pointer">
+  <Popover.Trigger
+    class="z-50 absolute top-[2vh] left-[2vh] w-[8vh] h-[8vh] cursor-pointer"
+  >
     <img
       class="w-full h-full object-cover cursor-pointer"
       alt="ICONO MENU"
@@ -32,7 +39,7 @@
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
-          <p>Descargar calendario PDF</p>
+          <p class="f9-latino">Descargar calendario PDF</p>
         </a>
 
         <a
@@ -46,7 +53,7 @@
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
-          <p>Descargar coloreables</p>
+          <p class="f9-latino">Descargar coloreables</p>
         </a>
       </div>
     </div>
@@ -61,14 +68,14 @@
           alt="ICONO DESCARGAR"
           src="/images/ICONOS/TUTORIAL.webp"
         />
-        <p class="leading-none">
+        <p class="leading-none f9-latino">
           Guardado en pantalla<br />de inicio iOS y Android
         </p>
       </a>
     </div>
 
     <Popover.Close
-      on:click={AuthHandlers.logout}
+      on:click={handleCloseSesion}
       class="z-50 w-full mb-5 rounded-xl border border-ared mt-5 px-3 py-1 cursor-pointer hover:text-white hover:bg-ared transition-all ease-linear duration-200"
     >
       CERRAR SESIÓN
