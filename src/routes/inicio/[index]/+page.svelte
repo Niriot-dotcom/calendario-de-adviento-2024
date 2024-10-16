@@ -8,7 +8,7 @@
   import { db } from "$lib/firebase/firebase.client";
   import { AuthStore } from "../../../stores/AuthStore";
 
-  let index: number = +$page.params.index;
+  let index: number = +$page.params.index - 1;
 
   async function updateDay() {
     try {
@@ -41,7 +41,7 @@
 > -->
 <!-- BACKGROUND TEXTURE -->
 <div
-  class="w-full h-screen md:h-screen absolute inner-div box-border overflow-y-hidden bg-cover opacity-90"
+  class="w-full h-screen md:h-screen absolute inner-div box-border overflow-y-hidden bg-cover opacity-70"
   style="background: url('/images/FONDOS/ESCENARIO_1.webp') no-repeat; float: left; background-size: 100vw; background-size: cover; background-position: center;"
 />
 
@@ -94,7 +94,7 @@
       />
 
       <div
-        class="absolute top-8 left-0 w-full h-1/2 flex flex-col justify-center text-ared px-[2rem] overflow-hidden"
+        class="absolute top-[6vh] left-0 w-full h-1/2 flex flex-col justify-center text-ared px-[2rem] overflow-hidden"
       >
         <p class="leading-none f6-latino">
           {@html BUENAS_OBRAS[index].angelitaText}
