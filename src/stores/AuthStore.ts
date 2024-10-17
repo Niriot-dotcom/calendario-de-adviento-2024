@@ -9,15 +9,18 @@ import { writable, type Writable } from "svelte/store";
 import { auth } from "$lib/firebase/firebase.client";
 import type { USER_SCHEMA } from "$lib/constants/db";
 
-interface IAuthStore {
+export interface IAuthStore {
   isLoading: boolean;
   currentUser: { uid: string; email: string } | null;
   data: USER_SCHEMA;
+  currentDay: number;
 }
 
 export const AuthStore: Writable<IAuthStore> = writable({
   isLoading: true,
   currentUser: null,
+  currentDay: 25,
+  // currentDay: new Date().getDate(),
   data: {
     username: "",
     email: "",

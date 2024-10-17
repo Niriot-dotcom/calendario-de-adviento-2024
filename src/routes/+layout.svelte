@@ -11,7 +11,7 @@
 
   onMount(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      console.log("user: ", user);
+      console.log("user: ", user, $AuthStore?.data);
       if (!user) {
         return;
       }
