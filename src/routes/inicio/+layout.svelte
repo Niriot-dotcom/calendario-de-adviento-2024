@@ -1,7 +1,5 @@
 <script>
   import StarsTransition from "$lib/transitions/StarsTransition.svelte";
-
-  export let data;
 </script>
 
 <svelte:head>

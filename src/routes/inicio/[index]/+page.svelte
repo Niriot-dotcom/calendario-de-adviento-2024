@@ -20,8 +20,9 @@
       await setDoc(userRef, { lastDay: index }, { merge: true });
 
       let newData: USER_SCHEMA = $AuthStore.data;
-      newData.lastDay = index;
+      newData.lastDay = index + 1;
       AuthStore.update((curr) => {
+        console.log("here updating...", index);
         return {
           ...curr,
           data: newData,

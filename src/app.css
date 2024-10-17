@@ -201,7 +201,12 @@ body {
   overflow-x: hidden;
 }
 
-/* FONTS */
+.fivy {
+  font-family: "ivypresto-display", serif;
+}
+
+
+/* RESPONSIVE STYLED FONTS */
 .f1-ivy {
   font-family: "ivypresto-display", serif;
   font-weight: 100;
@@ -260,6 +265,7 @@ body {
 .f9-latino {
   font-family: "latino-gothic-variable", sans-serif;
   font-style: normal;
+  font-weight: bold;
   font-size: 0.792rem;
   font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
 }
@@ -305,7 +311,11 @@ body {
     font-size: 4.139rem;
   } */
   /* .f9-latino {
-    font-size: 0.792rem;
+    font-family: "latino-gothic-variable", sans-serif;
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
   } */
   /* .f10-latino {
     font-size: 0.792rem;
@@ -329,7 +339,31 @@ xl	1280px
     font-size: 8rem;
   }
   .f9-latino {
-    font-size: 1rem;
+    font-family: "latino-gothic-variable", sans-serif;
+    font-style: normal;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
+  }
+  .f10-latino {
+    font-size: 2.1vh;
+  }
+}
+
+/* lg */
+@media screen and (min-width: 1024px) {
+  .f7-ivy {
+    font-family: "ivypresto-display", serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 2rem;
+  }
+  .f9-latino {
+    font-family: "latino-gothic-variable", sans-serif;
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
   }
   .f10-latino {
     font-size: 2.1vh;
@@ -338,21 +372,6 @@ xl	1280px
 
 /* xl */
 @media screen and (min-width: 1280px) {
-  .f5-latino {
-    font-size: 1.5rem;
-  }
-  .f6-latino {
-    font-size: 2rem;
-  }
-  .f8-ivy {
-    font-size: 8rem;
-  }
-  .f9-latino {
-    font-size: 1rem;
-  }
-  /* .f10-latino {
-    font-size: 1rem;
-  } */
 }
 
 /* HTML: <div class="loader"></div> */
@@ -372,4 +391,23 @@ xl	1280px
     40%{background-position:0% 100%, 50%   0%,100%  50%}
     60%{background-position:0%  50%, 50% 100%,100%   0%}
     80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+
+.phone-icon {
+  animation: rotatePhone 2.5s infinite;
+  transform-origin: center;
+}
+@keyframes rotatePhone {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
