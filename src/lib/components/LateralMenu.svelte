@@ -12,7 +12,7 @@
 
 <Popover.Root>
   <Popover.Trigger
-    class="z-50 absolute top-[2vh] left-[2vh] w-[8vh] h-[8vh] cursor-pointer"
+    class="z-50 absolute top-[2vw] left-[2vw] md:top-[2vh] md:left-[2vh] w-[8vw] h-[8vw] md:w-[8vh] md:h-[8vh] cursor-pointer"
   >
     <img
       class="w-full h-full object-cover cursor-pointer"
@@ -24,7 +24,7 @@
     class="z-0 ml-6 mt-3 rounded-xl absolute top-0 left-0 bg-white w-fit md:w-56 lg:w-96 text-ared"
   >
     <!-- DESCARGA -->
-    <div class="text-left ml-5 md:ml-1 mt-5 md:mt-1 mb-5">
+    <div class="text-left ml-2 md:ml-1 mt-5 md:mt-1 mb-5">
       <p class="text-agreen f7-ivy">Descargables</p>
 
       <div class="">
@@ -59,7 +59,7 @@
     </div>
 
     <!-- TUTORIAL -->
-    <div class="text-left ml-5 md:ml-1 mt-5 md:mt-1">
+    <div class="text-left ml-2 md:ml-1 mt-5 md:mt-1 mb-5">
       <p class="text-agreen f7-ivy">Tutorial</p>
 
       <Popover.Close>

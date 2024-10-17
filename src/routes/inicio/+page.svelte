@@ -81,6 +81,12 @@
       />
     </div>
 
+    <!-- LOGO -->
+    <WhiteLogo />
+
+    <!-- MENU BUTTON -->
+    <LateralMenu />
+
     <div class="flex w-full space-x-2 items-center justify-center">
       <!-- <div class="phone-icon max-w-full h-8">
         <img
