@@ -30,7 +30,7 @@
       style="background: url('/images/FONDOS/CASA.webp') no-repeat; float: left; background-size: 100vh; background-size: cover; background-position: center; scale: 100%;"
     />
 
-    <!-- <AngelitaDialog /> -->
+    <AngelitaDialog />
 
     <!-- LOGO -->
     <WhiteLogo />

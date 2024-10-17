@@ -14,14 +14,6 @@
 
   async function saveAngelitosNames() {
     try {
-      const userRef = doc(
-        db,
-        COLLECTIONS.Usuarios,
-        $AuthStore.currentUser!.uid
-      );
-      await setDoc(userRef, { angelitaName, angelitoName }, { merge: true });
-      validNames = true;
-
       let newData: USER_SCHEMA = $AuthStore.data;
       newData.angelitaName = angelitaName;
       newData.angelitoName = angelitoName;
@@ -32,6 +24,14 @@
           isLoading: false,
         };
       });
+
+      const userRef = doc(
+        db,
+        COLLECTIONS.Usuarios,
+        $AuthStore.currentUser!.uid
+      );
+      await setDoc(userRef, { angelitaName, angelitoName }, { merge: true });
+      validNames = true;
     } catch (err) {
       console.log("There was an error saving your information");
     }

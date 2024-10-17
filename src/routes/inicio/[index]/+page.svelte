@@ -12,13 +12,6 @@
 
   async function updateDay() {
     try {
-      const userRef = doc(
-        db,
-        COLLECTIONS.Usuarios,
-        $AuthStore.currentUser!.uid
-      );
-      await setDoc(userRef, { lastDay: index }, { merge: true });
-
       let newData: USER_SCHEMA = $AuthStore.data;
       newData.lastDay = index + 1;
       AuthStore.update((curr) => {
@@ -29,6 +22,13 @@
           // isLoading: false,
         };
       });
+
+      const userRef = doc(
+        db,
+        COLLECTIONS.Usuarios,
+        $AuthStore.currentUser!.uid
+      );
+      await setDoc(userRef, { lastDay: index + 1 }, { merge: true });
 
       console.log("newData: ", newData);
     } catch (err) {

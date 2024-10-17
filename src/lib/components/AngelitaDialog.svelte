@@ -84,7 +84,7 @@
         <p class="leading-none f10-latino">Bienvenido<br />al día 1</p> -->
           <p class="leading-none f9-latino items-center mb-2">
             ¡Hola!<br />
-            <span>Hoy es el día {currentDay}</span>
+            <span class="f10-latino">Hoy es el día {currentDay}</span>
           </p>
           <p class="leading-none f10-latino">{@html dialog}</p>
         </div>
