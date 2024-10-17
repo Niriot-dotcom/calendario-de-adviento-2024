@@ -1,6 +1,12 @@
 <script lang="ts">
   import * as Dialog from "$lib/components/ui/dialog";
+  import {
+    signInWithPopup,
+    GoogleAuthProvider,
+    FacebookAuthProvider,
+  } from "firebase/auth";
   import { AuthStore, AuthHandlers } from "../../../stores/AuthStore";
+  import { auth } from "$lib/firebase/firebase.client";
 
   let email = "";
   let password = "";
@@ -47,11 +53,50 @@
     authenticating = false;
     errorMsg = "Hubo un error, por favor verifica tus datos";
   }
+
+  async function handleLoginWithGoogle() {
+    try {
+      await signInWithPopup(auth, new GoogleAuthProvider());
+
+      if ($AuthStore.currentUser) {
+        window.location.href = register ? "/nombramiento" : "/inicio";
+      }
+    } catch (error) {}
+  }
+
+  async function handleLoginWithFacebook() {
+    try {
+      signInWithPopup(auth, new FacebookAuthProvider())
+        .then((result) => {
+          const user = result.user;
+          console.log("FB user: ", user);
+
+          if ($AuthStore.currentUser) {
+            window.location.href = register ? "/nombramiento" : "/inicio";
+          }
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = FacebookAuthProvider.credentialFromError(error);
+
+          // ...
+          console.log("FB error: ", error, email);
+        });
+    } catch (error) {
+      console.log("catch FB error: ", error);
+    }
+  }
 </script>
 
 <!-- TODO -->
 <div class="text-agreen flex flex-col space-y-1 mt-0 items-center w-full">
   <button
+    on:click={handleLoginWithGoogle}
     class="px-5 bg-white rounded-xl w-1/2 h-8 text-nowrap flex space-x-2 items-center"
   >
     <img
@@ -62,6 +107,7 @@
     <span class="f6-latino">Usar Google</span>
   </button>
   <button
+    on:click={handleLoginWithFacebook}
     class="px-5 bg-white rounded-xl w-1/2 h-8 text-nowrap flex space-x-2 items-center"
   >
     <img
