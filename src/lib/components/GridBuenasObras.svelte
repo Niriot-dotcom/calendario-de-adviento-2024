@@ -2,15 +2,16 @@
   import { goto } from "$app/navigation";
   import type { USER_SCHEMA } from "$lib/constants/db";
   import { AuthStore } from "../../stores/AuthStore";
+  import AngelitosHomepage from "./AngelitosHomepage.svelte";
 
-  // let currentDay = new Date().getDate();
-  let currentDay = 25;
+  let currentDay: number;
   let nextAvailableDay: number;
 
   let dataFromUser: USER_SCHEMA;
   AuthStore.subscribe((curr) => {
     dataFromUser = curr?.data;
     nextAvailableDay = dataFromUser.lastDay + 1;
+    currentDay = curr?.currentDay;
   });
 </script>
 
@@ -20,19 +21,17 @@
   <div class="grid grid-cols-1 grid-rows-6 w-[25vh] h-full z-10">
     <div></div>
     {#each [1, 12, 13, 23, 24] as number, _}
-      {#if number <= nextAvailableDay && number <= currentDay}
+      {#if number <= currentDay && number <= nextAvailableDay}
         <button
           on:click={() => goto(`/inicio/${number}`)}
-          disabled={number <= nextAvailableDay &&
-            number <= currentDay &&
-            number <= dataFromUser.lastDay}
+          disabled={number !== nextAvailableDay || number > currentDay}
           class="w-full h-full relative"
         >
           <div
             class="w-[8vh] h-[8vh] absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
           >
             <img
-              class="object-contain {number > dataFromUser.lastDay
+              class="object-contain {nextAvailableDay === number
                 ? 'grayscale-img'
                 : ''}"
               alt="star"
@@ -49,124 +48,114 @@
     <div
       class="w-[30vh] h-2/3 place-self-center grid grid-rows-2 relative self-start"
     >
-      {#if 3 <= nextAvailableDay && 3 <= currentDay}
-        <button
-          on:click={() => goto(`/inicio/3`)}
-          disabled={3 <= nextAvailableDay &&
-            3 <= currentDay &&
-            3 <= dataFromUser.lastDay}
-          class="w-full h-full relative self-end"
-        >
+      <button
+        on:click={() => goto(`/inicio/3`)}
+        disabled={3 !== nextAvailableDay || 3 > currentDay}
+        class="w-full h-full relative self-end"
+      >
+        {#if 3 <= currentDay && 3 <= nextAvailableDay}
           <div
             class="w-[8vh] h-[8vh] absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
           >
             <img
-              class="w-full h-full object-contain {3 > dataFromUser.lastDay
+              class="w-full h-full object-contain {nextAvailableDay === 3
                 ? 'grayscale-img'
                 : ''}"
               alt="star"
               src="/images/ELEMENTOS/ESTRELLA.webp"
             />
           </div>
-        </button>
-      {/if}
+        {/if}
+      </button>
 
       <div class="w-full h-full flex space-x-8">
-        {#if 2 <= nextAvailableDay && 2 <= currentDay}
-          <button
-            on:click={() => goto(`/inicio/2`)}
-            disabled={2 <= nextAvailableDay &&
-              2 <= currentDay &&
-              2 <= dataFromUser.lastDay}
-            class="w-1/2 h-full relative"
-          >
+        <button
+          on:click={() => goto(`/inicio/2`)}
+          disabled={2 !== nextAvailableDay || 2 > currentDay}
+          class="w-1/2 h-full relative"
+        >
+          {#if 2 <= currentDay && 2 <= nextAvailableDay}
             <div
               class="w-[8vh] h-[8vh] absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
             >
               <img
-                class="w-full h-full object-contain {2 > dataFromUser.lastDay
+                class="w-full h-full object-contain {nextAvailableDay === 2
                   ? 'grayscale-img'
                   : ''}"
                 alt="star"
                 src="/images/ELEMENTOS/ESTRELLA.webp"
               />
             </div>
-          </button>
-        {/if}
+          {/if}
+        </button>
 
-        {#if 4 <= nextAvailableDay && 4 <= currentDay}
-          <button
-            on:click={() => goto(`/inicio/4`)}
-            disabled={4 <= nextAvailableDay &&
-              4 <= currentDay &&
-              4 <= dataFromUser.lastDay}
-            class="w-1/2 h-full relative"
-          >
+        <button
+          on:click={() => goto(`/inicio/4`)}
+          disabled={4 !== nextAvailableDay || 4 > currentDay}
+          class="w-1/2 h-full relative"
+        >
+          {#if 4 <= currentDay && 4 <= nextAvailableDay}
             <div
               class="w-[8vh] h-[8vh] absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
             >
               <img
-                class="object-contain {4 > dataFromUser.lastDay
+                class="object-contain {nextAvailableDay === 4
                   ? 'grayscale-img'
                   : ''}"
                 alt="star"
                 src="/images/ELEMENTOS/ESTRELLA.webp"
               />
             </div>
-          </button>
-        {/if}
+          {/if}
+        </button>
       </div>
     </div>
 
     <div class="w-full h-full">
       <div class="w-full h-1/2 grid grid-cols-4 grid-rows-1" dir="rtl">
         {#each [8, 9, 10, 11] as number, i}
-          {#if number <= nextAvailableDay && number <= currentDay}
-            <button
-              on:click={() => goto(`/inicio/${number}`)}
-              disabled={number <= nextAvailableDay &&
-                number <= currentDay &&
-                number <= dataFromUser.lastDay}
-              class="relative w-full h-full"
-            >
+          <button
+            on:click={() => goto(`/inicio/${number}`)}
+            disabled={number !== nextAvailableDay || number > currentDay}
+            class="relative w-full h-full"
+          >
+            {#if number <= currentDay && number <= nextAvailableDay}
               <div
                 class="w-[8vh] h-[8vh] absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
               >
                 <img
-                  class="object-contain {number > dataFromUser.lastDay
+                  class="object-contain {nextAvailableDay === number
                     ? 'grayscale-img'
                     : ''}"
                   alt="star"
                   src="/images/ELEMENTOS/ESTRELLA.webp"
                 />
               </div>
-            </button>
-          {/if}
+            {/if}
+          </button>
         {/each}
       </div>
       <div class="w-full h-1/2 grid grid-cols-4 grid-rows-1">
         {#each [14, 15, 16, 17] as number, i}
-          {#if number <= nextAvailableDay && number <= currentDay}
-            <button
-              on:click={() => goto(`/inicio/${number}`)}
-              disabled={number <= nextAvailableDay &&
-                number <= currentDay &&
-                number <= dataFromUser.lastDay}
-              class="relative w-full h-full"
-            >
+          <button
+            on:click={() => goto(`/inicio/${number}`)}
+            disabled={number !== nextAvailableDay || number > currentDay}
+            class="relative w-full h-full"
+          >
+            {#if number <= currentDay && number <= nextAvailableDay}
               <div
                 class="w-[8vh] h-[8vh] absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
               >
                 <img
-                  class="object-contain {number > dataFromUser.lastDay
+                  class="object-contain {nextAvailableDay === number
                     ? 'grayscale-img'
                     : ''}"
                   alt="star"
                   src="/images/ELEMENTOS/ESTRELLA.webp"
                 />
               </div>
-            </button>
-          {/if}
+            {/if}
+          </button>
         {/each}
       </div>
     </div>
@@ -175,21 +164,19 @@
       {#each [22, 25, 21] as number, i}
         <button
           on:click={() => goto(`/inicio/${number}`)}
-          disabled={number <= nextAvailableDay &&
-            number <= currentDay &&
-            number <= dataFromUser.lastDay}
+          disabled={number !== nextAvailableDay || number > currentDay}
           class="w-full h-5/6 relative {number === 25
             ? 'self-end'
             : ''} order-{i}"
         >
-          {#if number <= nextAvailableDay && number <= currentDay}
+          {#if number <= currentDay && number <= nextAvailableDay}
             <div
               class="{number === 25
                 ? 'w-[10vh] h-[10vh]'
                 : 'w-[8vh] h-[8vh]'} absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
             >
               <img
-                class="object-contain {number > dataFromUser.lastDay
+                class="object-contain {nextAvailableDay === number
                   ? 'grayscale-img'
                   : ''}"
                 alt="star"
@@ -205,19 +192,17 @@
   <!-- DERECHO -->
   <div class="grid grid-cols-1 grid-rows-6 w-[25vh] h-full z-10">
     {#each [5, 6, 7, 18, 19, 20] as number, i}
-      {#if number <= nextAvailableDay && number <= currentDay}
+      {#if number <= currentDay && number <= nextAvailableDay}
         <button
           on:click={() => goto(`/inicio/${number}`)}
-          disabled={number <= nextAvailableDay &&
-            number <= currentDay &&
-            number <= dataFromUser.lastDay}
+          disabled={number !== nextAvailableDay || number > currentDay}
           class="w-full h-full relative"
         >
           <div
             class="w-[8vh] h-[8vh] absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
           >
             <img
-              class="object-contain {number > dataFromUser.lastDay
+              class="object-contain {nextAvailableDay === number
                 ? 'grayscale-img'
                 : ''}"
               alt="star"

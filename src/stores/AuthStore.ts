@@ -19,7 +19,7 @@ export interface IAuthStore {
 export const AuthStore: Writable<IAuthStore> = writable({
   isLoading: true,
   currentUser: null,
-  currentDay: 25,
+  currentDay: 5,
   // currentDay: new Date().getDate(),
   data: {
     username: "",
