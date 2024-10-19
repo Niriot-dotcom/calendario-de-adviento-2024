@@ -25,7 +25,7 @@
   >
     <!-- DESCARGA -->
     <div class="text-left ml-2 md:ml-1 mt-5 md:mt-1 mb-5">
-      <p class="text-agreen f7-ivy">Descargables</p>
+      <p class="f7-ivy">Descargables</p>
 
       <div class="">
         <a
@@ -60,7 +60,7 @@
 
     <!-- TUTORIAL -->
     <div class="text-left ml-2 md:ml-1 mt-5 md:mt-1 mb-5">
-      <p class="text-agreen f7-ivy">Tutorial</p>
+      <p class="f7-ivy">Tutorial</p>
 
       <Popover.Close>
         <a href="/inicio/tutorial" class="flex space-x-2 items-center">

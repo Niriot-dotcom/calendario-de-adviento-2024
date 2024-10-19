@@ -53,29 +53,33 @@
     {/if}
 
     {#if areThereDaysLeft(testingHours)}
-      <div class="mb-2 text-ared">
-        <p class="f4-latino leading-none text-nowrap">para conocer nuestro</p>
-        <p class="f1-ivy leading-none text-nowrap">Calendario de Adviento</p>
-        <p class="f1-ivy leading-none">2024</p>
-        <p class="f10-latino leading-none text-agreen mt-1">
-          Disponible a partir del
+      <div class="mb-2">
+        <p class="text-ared f4-latino leading-none text-nowrap">
+          para conocer nuestro
         </p>
-        <p class="f10-latino leading-none text-agreen">
-          1 de Diciembre del 2024
+        <p class="text-ared f1-ivy leading-none text-nowrap">
+          Calendario de Adviento
         </p>
+        <p class="text-ared f1-ivy leading-none">2024</p>
+        <p class="f10-latino leading-none mt-1">Disponible a partir del</p>
+        <p class="f10-latino leading-none">1 de Diciembre del 2024</p>
       </div>
     {/if}
 
     <SignInUpForm />
 
-    <div class="mb-5 mt-5 text-ared">
-      <p class="f10-latino leading-none">
-        Con nuestro calendario <span class="f9-latino">realizarás</span>
+    <div class="mb-5 mt-5">
+      <p class="text-ared f10-latino leading-none">
+        Con nuestro calendario <span class="text-ared f9-latino"
+          >realizarás</span
+        >
       </p>
-      <p class="f9-latino leading-none">
+      <p class="text-ared f9-latino leading-none">
         acciones nobles jugando y disfrutando
       </p>
-      <p class="f10-latino leading-none">el tiempo con tus seres queridos.</p>
+      <p class="text-ared f10-latino leading-none">
+        el tiempo con tus seres queridos.
+      </p>
     </div>
   </div>
 </MagicTransition>

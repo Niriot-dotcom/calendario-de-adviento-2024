@@ -94,7 +94,7 @@
 </script>
 
 <!-- TODO -->
-<div class="text-agreen flex flex-col space-y-1 mt-0 items-center w-full">
+<div class="flex flex-col space-y-1 mt-0 items-center w-full">
   <button
     on:click={handleLoginWithGoogle}
     class="px-5 bg-white rounded-xl w-1/2 h-8 text-nowrap flex space-x-2 items-center"
@@ -137,7 +137,7 @@
     >
       <Dialog.Header>
         <Dialog.Title class="font-normal text-center">
-          <p class="text-agreen f6-latino">
+          <p class="f6-latino">
             {register ? "Registro" : "Iniciar sesión"}
           </p>
         </Dialog.Title>
@@ -150,33 +150,33 @@
 
       <div class="w-11/12 md:w-8/12">
         <form class="flex flex-col space-y-2 items-center">
-          <label class="w-full text-agreen f10-latino">
-            <p class="text-agreen f10-latino">Correo electrónico</p>
+          <label class="w-full f10-latino">
+            <p class="f10-latino">Correo electrónico</p>
             <input
               bind:value={email}
               type="email"
               placeholder="Correo electrónico"
-              class="vinput focus:ring-2 focus:ring-ared focus:text-agreen focus:bg-gray-200"
+              class="vinput focus:ring-2 focus:ring-ared focus:focus:bg-gray-200"
             />
           </label>
 
-          <label class="w-full text-agreen f10-latino">
-            <p class="text-agreen f10-latino">Contraseña</p>
+          <label class="w-full f10-latino">
+            <p class="f10-latino">Contraseña</p>
             <input
               bind:value={password}
               type="password"
               placeholder="Contraseña"
-              class="vinput focus:ring-2 focus:ring-ared focus:text-agreen focus:bg-gray-200"
+              class="vinput focus:ring-2 focus:ring-ared focus:focus:bg-gray-200"
             />
           </label>
           {#if register}
-            <label class="w-full text-agreen f10-latino">
+            <label class="w-full f10-latino">
               <p>Confirmar Contraseña</p>
               <input
                 bind:value={confirmPass}
                 type="password"
                 placeholder="Contraseña"
-                class="vinput focus:ring-2 focus:ring-ared focus:text-agreen focus:bg-gray-200"
+                class="vinput focus:ring-2 focus:ring-ared focus:focus:bg-gray-200"
               />
             </label>
           {/if}
@@ -191,7 +191,7 @@
         </form>
 
         <!--  -->
-        <div class="flex flex-col items-center text-agreen mt-5">
+        <div class="flex flex-col items-center mt-5">
           {#if register}
             <div class="flex">
               <p>

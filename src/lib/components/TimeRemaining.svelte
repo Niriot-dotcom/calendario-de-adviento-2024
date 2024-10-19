@@ -20,7 +20,7 @@
   });
 </script>
 
-<div class="my-0 text-agreen">
+<div class="my-0">
   <p class="f6-latino">Faltan</p>
   <p class="f8-ivy leading-tight lg:leading-none">{timeRemaining}</p>
 </div>

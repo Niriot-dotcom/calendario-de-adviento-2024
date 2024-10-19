@@ -86,7 +86,7 @@
     class="absolute md:relative md:my-5 flex flex-col bottom-0 w-full h-[40vh]"
   >
     <!-- FOOTER -->
-    <div class="f5-latino my-5 text-agreen">
+    <div class="f5-latino my-5">
       <p class="leading-none">Para comenzar nombra a tus Angelitos,</p>
       <p class="leading-none">
         ellos <span class="f6-latino">te acompañarán durante el Adviento.</span>
@@ -94,9 +94,7 @@
     </div>
 
     <!-- TEXT FIELDS -->
-    <form
-      class="flex flex-col space-y-5 w-full items-center justify-center text-agreen"
-    >
+    <form class="flex flex-col space-y-5 w-full items-center justify-center">
       <!-- ANGELITA -->
       <div class="flex flex-col md:w-2/6">
         <!-- svelte-ignore a11y-label-has-associated-control -->

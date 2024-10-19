@@ -33,7 +33,7 @@
     px-3
     py-1.5
     bg-clip-padding bg-no-repeat cursor-pointer
-    text-agreen f10-latino rounded-s-full
+    f10-latino rounded-s-full
     m-0"
     aria-label="Default select example"
     name="Country"
@@ -60,7 +60,7 @@
     placeholder=""
     class="block px-3 py-1.5 m-0
     bg-clip-padding bg-no-repeat cursor-pointer
-    text-agreen f10-latino rounded-e-full
+    f10-latino rounded-e-full
     {valid ? 'border border-gray-300 ' : 'border-2 border-ared'}"
   />
 </div>

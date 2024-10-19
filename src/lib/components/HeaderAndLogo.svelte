@@ -13,8 +13,10 @@
 
 <!-- HEADER -->
 {#if !hideText}
-  <div class="text-ared z-10">
-    <p class="f1-ivy leading-none">Calendario de Adviento</p>
-    <p class="f2-baby leading-[3rem]">Angelitos 2024</p>
+  <div class="z-10">
+    <p class="text-ared f1-ivy leading-none">Calendario de Adviento</p>
+    <p class="text-ared f2-baby leading-[9vh] lg:leading-[3rem]">
+      Angelitos 2024
+    </p>
   </div>
 {/if}

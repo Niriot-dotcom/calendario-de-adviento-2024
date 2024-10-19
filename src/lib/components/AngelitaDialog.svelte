@@ -33,7 +33,7 @@
         />
 
         <div
-          class="absolute top-[3vh] px-[3vh] left-0 w-full h-[20vh] flex flex-col items-center justify-center text-ared overflow-hidden"
+          class="absolute top-[3vh] px-[3vh] left-0 w-full h-[20vh] flex flex-col items-center justify-center overflow-hidden"
         >
           <p class="leading-none f9-latino items-center mb-2">
             ¡Hola!<br />
@@ -78,7 +78,7 @@
         />
 
         <div
-          class="absolute top-[1.5vh] px-[1.5vh] left-0 w-full h-[9vh] flex flex-col justify-center text-ared overflow-hidden"
+          class="absolute top-[1.5vh] px-[1.5vh] left-0 w-full h-[9vh] flex flex-col justify-center overflow-hidden"
         >
           <!-- <p class="leading-none f10-latino">¡Hola!</p>
         <p class="leading-none f10-latino">Bienvenido<br />al día 1</p> -->
@@ -116,7 +116,7 @@
       />
 
       <div
-        class="absolute top-[1.5vh] px-[1.5vh] left-0 w-full h-[9vh] flex flex-col justify-center text-ared overflow-hidden"
+        class="absolute top-[1.5vh] px-[1.5vh] left-0 w-full h-[9vh] flex flex-col justify-center overflow-hidden"
       >
         <p class="leading-none f10-latino">Lorem ipsum dolor sit amet.</p>
       </div>
