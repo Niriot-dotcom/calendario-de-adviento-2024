@@ -3,8 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "latino-gothic-variable", sans-serif;
+body {
+  overflow-x: hidden;
+}
+*,
+*:before,
+*:after {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #125d43;
+  font-family: latino-gothic-variable, sans-serif;
 }
 
 @layer base {
@@ -186,152 +197,111 @@ input:-webkit-autofill:focus{
   mix-blend-mode: multiply;
 }
 
-*,
-*:before,
-*:after {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  overflow-x: hidden;
-}
-
 .fivy {
-  font-family: "ivypresto-display", serif;
+  font-family: ivypresto-display, serif;
 }
 
 
 /* RESPONSIVE STYLED FONTS */
 .f1-ivy {
-  font-family: "ivypresto-display", serif;
+  font-family: ivypresto-display, serif;
   font-weight: 100;
   font-style: italic;
-  /* font-size: 9.524vw; */
   font-size: 2.262rem;
 }
 .f2-baby {
   font-family: "Oooh Baby", cursive;
   font-weight: 400;
   font-style: normal;
-  /* font-size: 9.524vw; */
   font-size: 2.262rem;
 }
 .f3-ivy {
-  font-family: "ivypresto-display", serif;
+  font-family: ivypresto-display, serif;
   font-weight: 300;
   font-style: italic;
-  /* font-size: 5.238vw; */
   font-size: 1.244rem;
 }
 .f4-latino {
-  font-family: "latino-gothic-variable", sans-serif;
   font-style: normal;
-  /* font-size: 5.238vw; */
   font-size: 1.244rem;
   font-variation-settings: "wght" 20, "wdth" 70, "slnt" 1;
 }
 .f5-latino {
-  font-family: "latino-gothic-variable", sans-serif;
   font-style: normal;
-  /* font-size: 4.095vw; */
   font-size: 0.973rem;
   font-variation-settings: "wght" 20, "wdth" 70, "slnt" 1;
 }
 .f6-latino {
-  font-family: "latino-gothic-variable", sans-serif;
   font-style: normal;
-  /* font-size: 4.095vw; */
   font-size: 0.973rem;
   font-variation-settings: "wght" 37, "wdth" 70, "slnt" 1;
 }
 .f7-ivy {
-  font-family: "ivypresto-display", serif;
+  font-family: ivypresto-display, serif;
   font-weight: 300;
   font-style: italic;
-  /* font-size: 6.667vw; */
   font-size: 1.583rem;
 }
 .f8-ivy {
-  font-family: "ivypresto-display", serif;
+  font-family: ivypresto-display, serif;
   font-weight: 100;
   font-style: italic;
   font-size: 4.139rem;
 }
 .f9-latino {
-  font-family: "latino-gothic-variable", sans-serif;
   font-style: normal;
-  font-weight: bold;
   font-size: 0.792rem;
   font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
 }
 .f10-latino {
-  font-family: "latino-gothic-variable", sans-serif;
   font-style: normal;
   font-size: 0.792rem;
   font-variation-settings: "wght" 20, "wdth" 70, "slnt" 1;
 }
 
+/* ///////////////////////////////////////////////////////////////////
+      sm	640px
+      md	768px
+      lg	1024px
+      xl	1280px
+      2xl	1536px
+/////////////////////////////////////////////////////////////////// */
+
 /* MEDIA QUERIES */
 /* xs */
-/* @media screen and (min-width: 410px
-  .f1-ivy {
-    font-size: 2.441rem;
-  }
+/* @media screen and (min-width: 410px) {
 } */
 
 /* sm */
 @media screen and (min-width: 640px) {
   .f1-ivy {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
   .f2-baby {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
-  /* .f3-ivy {
-    font-size: 1.244rem;
-  } */
-  /* .f4-latino {
-    font-size: 1.244rem;
-  } */
-  /* .f5-latino {
-    font-size: 0.973rem;
-  } */
-  /* .f6-latino {
-    font-size: 0.973rem;
-  } */
-  /* .f7-ivy {
-    font-size: 1.583rem;
-  } */
-  /* .f8-ivy {
-    font-size: 4.139rem;
-  } */
-  /* .f9-latino {
-    font-family: "latino-gothic-variable", sans-serif;
-    font-style: normal;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
-  } */
-  /* .f10-latino {
-    font-size: 0.792rem;
-  } */
+  .f7-ivy {
+    font-size: 2.3rem;
+  }
+  .f9-latino {
+    font-size: 2vw
+  }
+  .f10-latino {
+    font-size: 2vw
+  }
 }
-
-/*
-sm	640px
-md	768px
-lg	1024px
-xl	1280px
-2xl	1536px
-*/
 
 /* md */
 @media screen and (min-width: 768px) {
+  .f1-ivy {
+    font-size: 2.3rem;
+  }
+  .f2-baby {
+    font-size: 2.3rem;
+  }
+  .f7-ivy {
+    font-size: 1.7rem;
+  }
   .f6-latino {
     font-size: 1.5rem;
   }
@@ -339,39 +309,43 @@ xl	1280px
     font-size: 8rem;
   }
   .f9-latino {
-    font-family: "latino-gothic-variable", sans-serif;
-    font-style: normal;
-    font-size: 0.8rem;
-    font-weight: bold;
-    font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
+    font-size: 1.7vw
   }
   .f10-latino {
-    font-size: 2.1vh;
+    font-size: 1.7vw
   }
 }
 
 /* lg */
 @media screen and (min-width: 1024px) {
+  .f1-ivy {
+    font-size: 3.2rem;
+  }
+  .f2-baby {
+    font-size: 3.2rem;
+  }
   .f7-ivy {
-    font-family: "ivypresto-display", serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 2rem;
+    font-size: 2.7rem;
   }
   .f9-latino {
-    font-family: "latino-gothic-variable", sans-serif;
-    font-style: normal;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-variation-settings: "wght" 52, "wdth" 70, "slnt" 1;
+    font-size: 1.75vw
   }
   .f10-latino {
-    font-size: 2.1vh;
+    font-size: 1.75vw
   }
 }
 
 /* xl */
 @media screen and (min-width: 1280px) {
+  /* .border-media {
+    border: 10px solid #226f54;
+  } */
+  .f9-latino {
+    font-size: 1.5vw
+  }
+  .f10-latino {
+    font-size: 1.5vw
+  }
 }
 
 /* HTML: <div class="loader"></div> */
@@ -392,7 +366,6 @@ xl	1280px
     60%{background-position:0%  50%, 50% 100%,100%   0%}
     80%{background-position:0%  50%, 50%  50%,100% 100%}
 }
-
 .phone-icon {
   animation: rotatePhone 2.5s infinite;
   transform-origin: center;
