@@ -1,6 +1,6 @@
 <script lang="ts">
   export let isAngelitoFirst: boolean = false;
-  export let firstPosition: "TOP" | "BOTTOM" | "CENTER" = "TOP";
+  export let firstPosition: "TOP" | "BOTTOM" | "CENTER" | "BOTH_TOP" = "TOP";
   export let angelitosSize: string = "w-full";
 
   const classesByPosition = {
@@ -15,6 +15,10 @@
     CENTER: {
       LEFT: "top-1/2 transform -translate-y-1",
       RIGHT: "top-1/2 transform -translate-y-1",
+    },
+    BOTH_TOP: {
+      LEFT: "top-0 left-0",
+      RIGHT: "top-0 right-0",
     },
   };
 </script>

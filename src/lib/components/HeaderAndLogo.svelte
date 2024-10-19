@@ -3,7 +3,7 @@
 </script>
 
 <!-- LOGO -->
-<div class="h-[14vh] md:h-[15vh] p-[3vh] z-10">
+<div class="h-[7vh] md:h-[10vh] my-[1vh] z-10">
   <img
     class="w-full h-full object-contain"
     alt="LOGO VIANNEY INVIERNO"
@@ -15,7 +15,9 @@
 {#if !hideText}
   <div class="z-10">
     <p class="text-ared f1-ivy leading-none">Calendario de Adviento</p>
-    <p class="text-ared f2-baby leading-[9vh] lg:leading-[3rem]">
+    <p
+      class="text-ared f2-baby leading-[3rem] md:leading-[3rem] lg:leading-[3rem]"
+    >
       Angelitos 2024
     </p>
   </div>
