@@ -44,36 +44,10 @@
     <!-- Stars -->
   </div>
 
-  <!-- mobile with advice -->
-  <!-- <div class="landscape:hidden">
-    <div
-      class="flex absolute justify-between w-full h-[35vh] top-[40%] transform -translate-y-[40%]"
-    >
-      <AngelitosHomepage
-        isAngelitoFirst
-        firstPosition="TOP"
-        angelitosSize="w-5/6"
-      />
-    </div>
-
-    <div
-      class="absolute md:relative md:my-5 flex flex-col bottom-0 w-full h-[40vh]"
-    >
-      <div class="f5-latino my-5 text-agreen">
-        TODO svg of a phone rotated to simulate rotation
-        <p class="leading-none">Voltea tu celular de manera horizontal</p>
-        <p class="leading-none">para una mejor experiencia</p>
-      </div>
-    </div> -->
-
-  <!-- <div
-    class="w-[calc(100%-24px)] h-screen absolute inner-div box-border overflow-y-hidden"
-  > -->
-
   <div
-    class="landscape:hidden w-[calc(100%-23px)] h-full inner-div box-border overflow-y-hidden"
+    class="landscape:hidden w-full h-full inner-div box-border overflow-y-hidden"
   >
-    <div class="w-full h-[35vh] overflow-hidden">
+    <div class="w-full h-[30vh] overflow-hidden">
       <img
         src="/images/FONDOS/CASA.webp"
         alt="CASA"
@@ -95,9 +69,7 @@
           src="/images/ICONOS/ROTAR_CELULAR.png"
         />
       </div> -->
-      <div
-        class="f9-latino my-3 text-agreen text-center flex flex-col items-center"
-      >
+      <div class="f9-latino my-3 text-center flex flex-col items-center">
         <div class="phone-icon max-w-fit h-8 mb-1">
           <img
             class="w-fit h-full md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
@@ -105,7 +77,7 @@
             src="/images/ICONOS/ROTAR_CELULAR.png"
           />
         </div>
-        <p class="leading-none">Voltea tu celular de manera horizontal</p>
+        <p class="leading-none">Rota tu celular de manera horizontal</p>
         <p class="leading-none">para una mejor experiencia</p>
       </div>
     </div>
