@@ -3,20 +3,33 @@ import { twMerge } from "tailwind-merge";
 import { cubicOut } from "svelte/easing";
 import type { TransitionConfig } from "svelte/transition";
 import { AuthStore } from "../stores/AuthStore";
-import type { USER_SCHEMA } from "./constants/db";
+import { COLLECTIONS, type USER_SCHEMA } from "./constants/db";
+import { db } from "./firebase/firebase.client";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
-let currentDay: number;
-let nextAvailableDay: number;
+export async function emailIsUnused(email: string) {
+  // let query = await db.collection('users').where("e-mail", isEqualTo: email).get();
+  // const docRef = doc(db, COLLECTIONS.Usuarios, user.uid);
+  //     const docSnap = await getDoc(docRef);
 
-let dataFromUser: USER_SCHEMA;
-AuthStore.subscribe((curr) => {
-  dataFromUser = curr?.data;
-  nextAvailableDay = dataFromUser.lastDay + 1;
-  currentDay = curr?.currentDay;
-});
+  const q = query(
+    collection(db, COLLECTIONS.Usuarios),
+    where("email", "==", email)
+  );
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.empty;
+}
 
 export function isStarAvailable(i: number) {
-  return i < currentDay;
+  // let currentDay: number;
+  // let nextAvailableDay: number;
+  // let dataFromUser: USER_SCHEMA;
+  // AuthStore.subscribe((curr) => {
+  //   dataFromUser = curr?.data;
+  //   nextAvailableDay = dataFromUser.lastDay + 1;
+  //   currentDay = curr?.currentDay;
+  // });
+  // return i < currentDay;
 }
 
 export function cn(...inputs: ClassValue[]) {
