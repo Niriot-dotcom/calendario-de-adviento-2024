@@ -6,14 +6,34 @@
   import { doc, setDoc } from "firebase/firestore";
   import { AuthStore } from "../../stores/AuthStore";
   import { db } from "$lib/firebase/firebase.client";
-  import { COLLECTIONS, type USER_SCHEMA } from "$lib/constants/db";
+  import {
+    COLLECTIONS,
+    MIN_LENGTH_ANGELITOS_NAME,
+    type USER_SCHEMA,
+  } from "$lib/constants/db";
+  import { goto } from "$app/navigation";
 
   let angelitaName: string = "";
   let angelitoName: string = "";
-  let validNames: boolean = false;
+  let errorMsg: string = "";
 
   async function saveAngelitosNames() {
     try {
+      if (
+        angelitaName.length < MIN_LENGTH_ANGELITOS_NAME ||
+        angelitoName.length < MIN_LENGTH_ANGELITOS_NAME
+      ) {
+        errorMsg = `Los nombres tienen que ser de al menos ${MIN_LENGTH_ANGELITOS_NAME} caracteres`;
+        return;
+      }
+      errorMsg = "";
+      const userRef = doc(
+        db,
+        COLLECTIONS.Usuarios,
+        $AuthStore.currentUser!.uid
+      );
+      await setDoc(userRef, { angelitaName, angelitoName }, { merge: true });
+
       let newData: USER_SCHEMA = $AuthStore.data;
       newData.angelitaName = angelitaName;
       newData.angelitoName = angelitoName;
@@ -25,45 +45,11 @@
         };
       });
 
-      const userRef = doc(
-        db,
-        COLLECTIONS.Usuarios,
-        $AuthStore.currentUser!.uid
-      );
-      await setDoc(userRef, { angelitaName, angelitoName }, { merge: true });
-      validNames = true;
+      goto("/indicaciones");
     } catch (err) {
       console.log("There was an error saving your information");
+      errorMsg = `Los nombres tienen que ser de al menos ${MIN_LENGTH_ANGELITOS_NAME} caracteres`;
     }
-
-    // let dataToSetToStore: USER_SCHEMA;
-    //   const docRef = doc(db, COLLECTIONS.Usuarios, user.uid);
-    //   const docSnap = await getDoc(docRef);
-    //   if (!docSnap.exists()) {
-    //     console.log("Creating User");
-    //     const userRef = doc(db, COLLECTIONS.Usuarios, user.uid);
-    //     dataToSetToStore = {
-    //       username: "",
-    //       email: user.email!,
-    //       angelitaName: "",
-    //       angelitoName: "",
-    //       lastDay: 0,
-    //     };
-    //     await setDoc(userRef, dataToSetToStore, { merge: true });
-    //   } else {
-    //     console.log("Fetching User");
-    //     const userData: USER_SCHEMA = docSnap.data();
-    //     dataToSetToStore = userData;
-    //   }
-
-    //   AuthStore.update((curr) => {
-    //     return {
-    //       ...curr,
-    //       currentUser: user,
-    //       data: dataToSetToStore,
-    //       isLoading: false,
-    //     };
-    //   });
   }
 </script>
 
@@ -91,6 +77,10 @@
       <p class="leading-none">
         ellos <span class="f6-latino">te acompañarán durante el Adviento.</span>
       </p>
+
+      {#if errorMsg !== ""}
+        <p class="text-ared f5-latino">⚠️ {errorMsg}</p>
+      {/if}
     </div>
 
     <!-- TEXT FIELDS -->
@@ -98,40 +88,30 @@
       <!-- ANGELITA -->
       <div class="flex flex-col md:w-2/6">
         <!-- svelte-ignore a11y-label-has-associated-control -->
-        <label class="latino-xl text-nowrap">Nombra a tu Angelita:</label>
+        <label class="f4-latino text-nowrap">Nombra a tu Angelita:</label>
         <input
           bind:value={angelitaName}
           name="nombre-angelita"
           type="text"
-          class="vinput"
+          class="vinput f5-latino"
         />
       </div>
 
       <!-- ANGELITO -->
       <div class="flex flex-col md:w-2/6">
         <!-- svelte-ignore a11y-label-has-associated-control -->
-        <label class="latino-xl text-nowrap">Nombra a tu Angelito:</label>
+        <label class="f4-latino text-nowrap">Nombra a tu Angelito:</label>
         <input
           bind:value={angelitoName}
           name="nombre-angelito"
           type="text"
-          class="vinput"
+          class="vinput f5-latino"
         />
       </div>
 
-      {#if !validNames}
-        <button
-          on:click={saveAngelitosNames}
-          class="z-50 mb-5 rounded-xl border border-ared mt-5 px-5 py-1 hover:text-white hover:bg-ared transition-all ease-linear duration-200"
-          type="submit"
-        >
-          Guardar
-        </button>
-      {/if}
+      <button on:click={saveAngelitosNames} type="submit" class="btnp">
+        <p class="f4-latino text-white font-extrabold tracking-wide">Guardar</p>
+      </button>
     </form>
   </div>
-
-  {#if validNames}
-    <NextButton nextRoute="/indicaciones" />
-  {/if}
 </MagicTransition>
