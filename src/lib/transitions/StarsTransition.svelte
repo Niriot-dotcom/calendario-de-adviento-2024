@@ -39,7 +39,11 @@
 
 <!-- {#key key} -->
 <!-- <div in:fade={{ duration, delay: duration }} out:fade={{ duration }}> -->
-<div in:scale={{ duration, delay: duration }} out:scale={{ duration }}>
+<div
+  class="w-full h-full"
+  in:scale={{ duration, delay: duration }}
+  out:scale={{ duration }}
+>
   <slot />
 </div>
 <!-- {/key} -->

@@ -168,8 +168,8 @@ input:-webkit-autofill:focus{
   margin-top: 1.25rem /* 20px */;
   padding-left: 1.25rem /* 20px */;
   padding-right: 1.25rem /* 20px */;
-  padding-top: 0.5rem /* 8px */;
-  padding-bottom: 0.5rem /* 8px */;
+  padding-top: 0.5rem;
+  /* padding-bottom: 0.5rem 8px; */
   color: #fff;
   background-color: #aa182d;
   display: flex;
@@ -186,8 +186,8 @@ input:-webkit-autofill:focus{
   background-color: #fff;
   border-radius: 9999px;
   width: 100%;
-  padding-left: 0.75rem /* 12px */;
-  padding-right: 0.75rem /* 12px */;
+  padding-left: 4% /* 12px */;
+  padding-right: 4% /* 12px */;
   padding-top: 0.25rem /* 4px */;
   padding-bottom: 0.25rem /* 4px */;
 }
@@ -280,8 +280,23 @@ input:-webkit-autofill:focus{
   .f2-baby {
     font-size: 2.8rem;
   }
+  .f3-ivy {
+    font-size: 2.5rem;
+  }
+  .f4-latino {
+    font-size: 2.5rem;
+  }
+  .f5-latino {
+    font-size: 1.2rem;
+  }
+  .f6-latino {
+    font-size: 1.2rem;
+  }
   .f7-ivy {
     font-size: 2.3rem;
+  }
+  .f8-ivy {
+    font-size: 9rem;
   }
   .f9-latino {
     font-size: 2vw
@@ -293,39 +308,69 @@ input:-webkit-autofill:focus{
 
 /* md */
 @media screen and (min-width: 768px) {
+  /* .border-media {
+    border: 10px solid #226f54;
+  } */
   .f1-ivy {
     font-size: 2.3rem;
   }
   .f2-baby {
     font-size: 2.3rem;
   }
+  .f3-ivy {
+    font-size: 0.9rem;
+  }
+  .f4-latino {
+    font-size: 0.9rem;
+  }
+  .f5-latino {
+    font-size: 0.8rem;
+  }
+  .f6-latino {
+    font-size: 0.8rem;
+  }
   .f7-ivy {
     font-size: 1.7rem;
   }
-  .f6-latino {
-    font-size: 1.5rem;
-  }
   .f8-ivy {
-    font-size: 8rem;
+    font-size: 5rem;
   }
   .f9-latino {
-    font-size: 1.7vw
+    font-size: 0.7rem
   }
   .f10-latino {
-    font-size: 1.7vw
+    font-size: 0.7rem
   }
 }
 
 /* lg */
 @media screen and (min-width: 1024px) {
+  /* .border-media {
+    border: 10px solid #226f54;
+  } */
   .f1-ivy {
     font-size: 3.2rem;
   }
   .f2-baby {
     font-size: 3.2rem;
   }
+  .f3-ivy {
+    font-size: 2.9rem;
+  }
+  .f4-latino {
+    font-size: 2.9rem;
+  }
+  .f5-latino {
+    font-size: 2.4rem;
+  }
+  .f6-latino {
+    font-size: 2.4rem;
+  }
   .f7-ivy {
     font-size: 2.7rem;
+  }
+  .f8-ivy {
+    font-size: 10rem;
   }
   .f9-latino {
     font-size: 1.75vw
@@ -340,6 +385,21 @@ input:-webkit-autofill:focus{
   /* .border-media {
     border: 10px solid #226f54;
   } */
+  .f3-ivy {
+    font-size: 3.5rem;
+  }
+  .f4-latino {
+    font-size: 3.5rem;
+  }
+  .f5-latino {
+    font-size: 2.5vw;
+  }
+  .f6-latino {
+    font-size: 2.5vw;
+  }
+  .f8-ivy {
+    font-size: 12rem;
+  }
   .f9-latino {
     font-size: 1.5vw
   }

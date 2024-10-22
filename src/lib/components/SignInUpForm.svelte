@@ -9,5 +9,7 @@
   {/if}
   <p class="text-ared f6-latino">Inicia sesión o regístrate en segundos</p>
 
-  <AuthForm />
+  <div class="w-full flex justify-center">
+    <AuthForm />
+  </div>
 </div>

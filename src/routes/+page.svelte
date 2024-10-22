@@ -53,31 +53,26 @@
     {/if}
 
     {#if areThereDaysLeft(testingHours)}
-      <div class="mb-2">
-        <p class="text-ared f4-latino leading-none text-nowrap">
-          para conocer nuestro
-        </p>
-        <p class="text-ared f1-ivy leading-none text-nowrap">
-          Calendario de Adviento
-        </p>
-        <p class="text-ared f1-ivy leading-none">2024</p>
-        <p class="f10-latino leading-none mt-1">Disponible a partir del</p>
-        <p class="f10-latino leading-none">1 de Diciembre del 2024</p>
+      <div class="mt-5 md:mt-3 w-11/12 mx-auto">
+        <p class="text-ared f4-latino leading-none">para conocer nuestro</p>
+        <p class="text-ared f3-ivy leading-none">Calendario de Adviento 2024</p>
       </div>
     {/if}
 
+    <div class="mb-5 mt-1 w-5/12 md:w-6/12 mx-auto">
+      <p class="f10-latino leading-none mt-0">
+        Disponible a partir del 1 de Diciembre del 2024
+      </p>
+    </div>
+
     <SignInUpForm />
 
-    <div class="mb-5 mt-5">
+    <div class="my-5 md:my-3 lg:my-5 w-7/12 md:w-4/12 lg:w-[39%] mx-auto">
       <p class="text-ared f10-latino leading-none">
-        Con nuestro calendario <span class="text-ared f9-latino"
-          >realizarás</span
-        >
-      </p>
-      <p class="text-ared f9-latino leading-none">
-        acciones nobles jugando y disfrutando
-      </p>
-      <p class="text-ared f10-latino leading-none">
+        Con nuestro calendario
+        <span class="text-ared f9-latino leading-none">
+          realizarás acciones nobles jugando y disfrutando
+        </span>
         el tiempo con tus seres queridos.
       </p>
     </div>
