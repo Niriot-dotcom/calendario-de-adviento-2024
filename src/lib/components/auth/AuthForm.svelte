@@ -36,7 +36,7 @@
       if ($AuthStore.currentUser) {
         window.location.href = register ? "/nombramiento" : "/inicio";
       }
-    } catch (err) {
+    } catch (err: any) {
       console.log("err.code: ", err.code);
       if (err.code === "auth/invalid-login-credentials") {
         errorMsg = "Verifica tu correo o contraseña";
@@ -93,14 +93,15 @@
   }
 </script>
 
-<!-- TODO -->
-<div class="flex flex-col space-y-1 mt-0 items-center w-full">
+<div
+  class="flex flex-col space-y-1 mt-0 items-center w-full sm:flex-row sm:space-y-0 sm:space-x-2 sm:w-fit"
+>
   <button
     on:click={handleLoginWithGoogle}
-    class="px-5 bg-white rounded-xl w-1/2 h-8 text-nowrap flex space-x-2 items-center"
+    class="px-5 bg-white rounded-xl w-1/2 sm:w-fit h-[3.5vh] sm:h-[5vh] md:h-[8vh] sm:pr-[3.5vw] text-nowrap flex space-x-2 items-center"
   >
     <img
-      class="w-[2.5vh] h-[2.5vh]"
+      class="w-[2.5vh] h-[2.5vh] md:w-[5vh] md:h-[5vh]"
       alt="GOOGLE ICON"
       src="/images/ICONOS/google.webp"
     />
@@ -108,10 +109,10 @@
   </button>
   <button
     on:click={handleLoginWithFacebook}
-    class="px-5 bg-white rounded-xl w-1/2 h-8 text-nowrap flex space-x-2 items-center"
+    class="px-5 bg-white rounded-xl w-1/2 sm:w-fit h-[3.5vh] sm:h-[5vh] md:h-[8vh] sm:pr-[3.5vw] text-nowrap flex space-x-2 items-center"
   >
     <img
-      class="w-[2.5vh] h-[2.5vh]"
+      class="w-[2.5vh] h-[2.5vh] md:w-[5vh] md:h-[5vh]"
       alt="FACEBOOK ICON"
       src="/images/ICONOS/facebook.png"
     />
@@ -121,10 +122,10 @@
   <!-- EMAIL AND PASSWORD -->
   <Dialog.Root>
     <Dialog.Trigger
-      class="px-5 bg-white rounded-xl w-1/2 h-8 text-nowrap flex space-x-2 items-center"
+      class="px-5 bg-white rounded-xl w-1/2 sm:w-fit h-[3.5vh] sm:h-[5vh] md:h-[8vh] sm:pr-[3.5vw] text-nowrap flex space-x-2 items-center"
     >
       <img
-        class="w-[2.5vh] h-[2.5vh]"
+        class="w-[2.5vh] h-[2.5vh] md:w-[5vh] md:h-[5vh]"
         alt="EMAIL ICON"
         src="/images/ICONOS/email.webp"
       />
@@ -136,12 +137,12 @@
       style="background: url('/images/FONDOS/FONDO.webp') no-repeat;"
     >
       <Dialog.Header>
-        <Dialog.Title class="font-normal text-center">
-          <p class="f6-latino">
+        <Dialog.Title class="text-center">
+          <p class="f3-ivy">
             {register ? "Registro" : "Iniciar sesión"}
           </p>
         </Dialog.Title>
-        <Dialog.Description class="Description">
+        <Dialog.Description class="text-center">
           {#if error}
             <p class="text-ared f10-latino">⚠️ {errorMsg}</p>
           {/if}
@@ -155,7 +156,7 @@
             <input
               bind:value={email}
               type="email"
-              placeholder="Correo electrónico"
+              placeholder="ejemplo@gmail.com"
               class="vinput focus:ring-2 focus:ring-ared focus:focus:bg-gray-200"
             />
           </label>
@@ -165,17 +166,17 @@
             <input
               bind:value={password}
               type="password"
-              placeholder="Contraseña"
+              placeholder="********"
               class="vinput focus:ring-2 focus:ring-ared focus:focus:bg-gray-200"
             />
           </label>
           {#if register}
             <label class="w-full f10-latino">
-              <p>Confirmar Contraseña</p>
+              <p class="f10-latino">Confirmar Contraseña</p>
               <input
                 bind:value={confirmPass}
                 type="password"
-                placeholder="Contraseña"
+                placeholder="********"
                 class="vinput focus:ring-2 focus:ring-ared focus:focus:bg-gray-200"
               />
             </label>
@@ -185,7 +186,9 @@
             {#if authenticating}
               <div class="loader"></div>
             {:else}
-              <p>{register ? "Registrarme" : "Iniciar sesión"}</p>
+              <p class="f9-latino text-white">
+                {register ? "Registrarme" : "Iniciar sesión"}
+              </p>
             {/if}
           </button>
         </form>
@@ -193,23 +196,15 @@
         <!--  -->
         <div class="flex flex-col items-center mt-5">
           {#if register}
-            <div class="flex">
-              <p>
-                ¿Ya tienes una cuenta?
-                <button class="underline" on:click={handleRegister}>
-                  Inicia sesión
-                </button>
-              </p>
-            </div>
+            <button class="f10-latino leading-tight" on:click={handleRegister}>
+              ¿Ya tienes una cuenta?
+              <p class="underline f9-latino">Inicia sesión</p>
+            </button>
           {:else}
-            <div class="flex">
-              <p>
-                ¿No tienes una cuenta?
-                <button class="underline" on:click={handleRegister}>
-                  Regístrate
-                </button>
-              </p>
-            </div>
+            <button class="f10-latino leading-tight" on:click={handleRegister}>
+              ¿No tienes una cuenta?
+              <p class="underline f9-latino">Regístrate</p>
+            </button>
           {/if}
         </div>
       </div>

@@ -119,17 +119,3 @@
     </div>
   </div>
 </StarsTransition>
-
-<!-- {:else}
-  <div>Loading....</div>
-{/if} -->
-
-<!-- <style>
-  div {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-</style> -->

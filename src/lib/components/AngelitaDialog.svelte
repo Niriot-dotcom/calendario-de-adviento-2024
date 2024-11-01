@@ -1,134 +1,229 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { AuthStore } from "../../stores/AuthStore";
+  import {
+    DIALOGS,
+    getCurrentDialog,
+    getDialogs,
+    type IDialog,
+  } from "$lib/constants/dialogs";
 
-  let dialog: string = "";
-  let isLargeText: boolean = false;
   let currentDay: number = 0;
+  let userDay: number = 0;
+
+  let dialogs: IDialog[] = getDialogs(userDay);
+  let dialogStructure: IDialog = DIALOGS.DEFAULT[0];
+  let dialogIndex: number = -1;
 
   AuthStore.subscribe((curr) => {
+    userDay = curr?.data.lastDay;
     currentDay = curr?.currentDay;
-    let lastDay = curr?.data.lastDay;
-    if (lastDay === currentDay) {
-      dialog = `Recuerda realizar tu buena acción del día y regresar mañana`;
-      isLargeText = true;
-    } else if (lastDay < currentDay) {
-      dialog = `Abre todas<br />las puertas<br />hasta hoy`;
-      isLargeText = true;
-    }
+    // let lastDay = curr?.data.lastDay;
+    // if (lastDay === currentDay) {
+    //   dialog = `Recuerda realizar tu buena acción del día y regresar mañana`;
+    //   isLargeText = true;
+    // } else if (lastDay < currentDay) {
+    //   dialog = `Abre todas<br />las puertas<br />hasta hoy`;
+    //   isLargeText = true;
+    // }
+  });
+
+  // ANIMATIONS
+  let initTourAngelito = false;
+  let initDisapearing = false;
+
+  let initTourAngelita = false;
+  let initBouncing = false;
+  let showDialog = false;
+  let beginDialogs = false;
+  onMount(() => {
+    setTimeout(() => {
+      showDialog = true;
+    }, 1000);
+
+    setTimeout(() => {
+      initTourAngelito = true;
+      setTimeout(() => {
+        initDisapearing = true;
+        setTimeout(() => {
+          initTourAngelita = true;
+          setTimeout(() => {
+            initBouncing = true;
+            beginDialogs = true;
+
+            setInterval(() => {
+              dialogStructure = getCurrentDialog(dialogs, dialogIndex)[0];
+              dialogIndex = getCurrentDialog(dialogs, dialogIndex)[1];
+            }, 2000);
+          }, 2000);
+        }, 500);
+      }, 1500);
+    }, 1000);
   });
 </script>
 
-<!-- GLOBO ANGELITA LARGO -->
-{#if isLargeText}
-  <div
-    class="absolute top-[15vh] right-[3vw] z-0 flex justify-end w-full h-full animate-bounce-smooth"
-  >
-    <div class="w-fit h-[30vh] relative">
-      <div class="w-full h-full">
+{#if userDay === 0}
+  <div class="z-10">
+    <img
+      src="/images/PERSONAJES/ANGELITO.webp"
+      alt="ANGELITO"
+      class="scale-x-[-1] angelito-img {initTourAngelito
+        ? 'tour'
+        : ''} {initDisapearing ? 'disapearing' : ''}"
+    />
+
+    <div class="fixed top-[8vh] right-[10vh] h-[45vh]">
+      <div class="relative">
+        {#if dialogStructure && dialogStructure.SIZE === ""}
+          <img
+            alt="GLOBO DIALOGO"
+            src="/images/ELEMENTOS/GLOBO ANGELITA.webp"
+            class="h-[25vh] relative transform transition-all ease-linear duration-300 {initBouncing
+              ? 'bouncing'
+              : 'opacity-0'}"
+          />
+
+          <div
+            class="absolute top-[3vh] left-0 w-full h-[13.5vh] px-[3.2vh] transform transition-all ease-linear duration-300 {initBouncing
+              ? 'bouncing'
+              : 'opacity-0'}"
+          >
+            <p
+              class="w-full h-full f10-latino text-center flex flex-col items-center justify-center leading-none"
+            >
+              {#if dialogStructure && dialogStructure.BOLD}
+                <span class="f9-latino">{@html dialogStructure.BOLD}<br /></span
+                >
+              {/if}
+              {#if dialogStructure && dialogStructure.NORMAL}
+                {@html dialogStructure.NORMAL}
+              {/if}
+            </p>
+          </div>
+        {:else}
+          <img
+            alt="GLOBO DIALOGO"
+            src="/images/ELEMENTOS/GLOBO ANGELITA LARGO.webp"
+            class="h-[40vh] relative transform transition-all ease-linear duration-300 {initBouncing
+              ? 'bouncing'
+              : 'opacity-0'}"
+          />
+
+          <div
+            class="absolute top-[5vh] left-0 w-full h-[26vh] px-[2.8vh] transform transition-all ease-linear duration-300 {initBouncing
+              ? 'bouncing'
+              : 'opacity-0'}"
+          >
+            <p
+              class="w-full h-full f10-latino text-center flex flex-col items-center justify-center leading-none"
+            >
+              {#if dialogStructure && dialogStructure.BOLD}
+                <span class="f9-latino">{@html dialogStructure.BOLD}<br /></span
+                >
+              {/if}
+              {#if dialogStructure && dialogStructure.NORMAL}
+                {@html dialogStructure.NORMAL}
+              {/if}
+            </p>
+          </div>
+        {/if}
+      </div>
+    </div>
+
+    <img
+      src="/images/PERSONAJES/ANGELITA.webp"
+      alt="ANGELITA"
+      class="scale-x-[-1] angelita-img {initTourAngelita
+        ? 'tour'
+        : ''} {initBouncing ? 'bouncing' : ''}"
+    />
+  </div>
+{:else}
+  <div class="z-10">
+    <div class="fixed top-[8vh] right-[10vh] h-[45vh]">
+      <div class="relative">
         <img
-          class="w-fit h-full object-contain"
-          alt="GLOBO PERSONAJES"
-          src="/images/ELEMENTOS/GLOBO ANGELITA LARGO.webp"
+          alt="GLOBO DIALOGO"
+          src="/images/ELEMENTOS/GLOBO ANGELITA.webp"
+          class="h-[25vh] relative transform transition-all ease-linear duration-300 {showDialog
+            ? 'bouncing'
+            : 'opacity-0'}"
         />
 
         <div
-          class="absolute top-[3vh] px-[3vh] left-0 w-full h-[20vh] flex flex-col items-center justify-center overflow-hidden"
+          class="absolute top-[3vh] left-0 w-full h-[13.5vh] px-[3.2vh] transform transition-all ease-linear duration-300 {showDialog
+            ? 'bouncing'
+            : 'opacity-0'}"
         >
-          <p class="leading-none f9-latino items-center mb-2">
-            ¡Hola!<br />
-            <span>Hoy es el día {currentDay}</span>
-          </p>
-          <p class="leading-none f10-latino flex items-center">
-            <!-- Realiza las buenas acciones diarias durante el Adviento para ayudarme
-          a regresar a casa con {$AuthStore.data.angelitaName} -->
-            <!-- Da click sobre el día correspondiente y comencemos esta aventura -->
-            <!-- Recuerda realizar tu buena acción del día y regresar mañana-->
-            <!-- Con tu ayuda cada vez falta menos para regresar a casa con {$AuthStore
-            .data.angelitoName} -->
-            <!-- ¡Lo lograste!<br />Me ayudaste a volver a casa mientras realizabas
-          acciones nobles, jugando y disfrutando del tiempo con tus seres -->
-            <!-- queridos, recuerda que la familia es el mejor regalo. -->
+          <p
+            class="w-full h-full f10-latino text-center flex flex-col items-center justify-center leading-none"
+          >
+            <span class="f9-latino">¡Hoy es el día {userDay + 1}!</span>
             {@html dialog}
           </p>
         </div>
       </div>
     </div>
 
-    <!-- ANGELITA -->
-    <div class="w-fit h-2/6 mt-[8vh]">
-      <img
-        class="w-5/6 h-full object-contain"
-        alt="ANGELITA"
-        src="/images/PERSONAJES/ANGELITA.webp"
-      />
-    </div>
-  </div>
-{:else}
-  <div
-    class="absolute top-10 right-10 z-0 flex justify-end w-full h-full animate-bounce-smooth"
-  >
-    <!-- GLOBO ANGELITA -->
-    <div class="w-fit h-[15vh] relative">
-      <div class="w-fit h-[15vh]">
-        <img
-          class="w-fit h-full object-contain"
-          alt="GLOBO PERSONAJES"
-          src="/images/ELEMENTOS/GLOBO ANGELITA.webp"
-        />
-
-        <div
-          class="absolute top-[1.5vh] px-[1.5vh] left-0 w-full h-[9vh] flex flex-col justify-center overflow-hidden"
-        >
-          <!-- <p class="leading-none f10-latino">¡Hola!</p>
-        <p class="leading-none f10-latino">Bienvenido<br />al día 1</p> -->
-          <p class="leading-none f9-latino items-center mb-2">
-            ¡Hola!<br />
-            <span class="f10-latino">Hoy es el día {currentDay}</span>
-          </p>
-          <p class="leading-none f10-latino">{@html dialog}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ANGELITA -->
-    <div class="w-fit h-2/6">
-      <img
-        class="w-5/6 h-full object-contain"
-        alt="ANGELITA"
-        src="/images/PERSONAJES/ANGELITA.webp"
-      />
-    </div>
+    <img
+      src="/images/PERSONAJES/ANGELITA.webp"
+      alt="ANGELITA"
+      class="scale-x-[-1] angelita-img {showDialog ? 'bouncing' : 'opacity-0'}"
+    />
   </div>
 {/if}
 
-<!-- ANGELITO -->
-<div
-  class="absolute top-10 left-10 z-0 flex w-full h-full animate-bounce-smooth"
->
-  <!-- GLOBO ANGELITO -->
-  <!-- <div class="w-fit h-[15vh] relative">
-    <div class="w-fit h-[15vh]">
-      <img
-        class="w-fit h-full object-contain"
-        alt="GLOBO PERSONAJES"
-        src="/images/ELEMENTOS/GLOBO ANGELITO.webp"
-      />
+<style>
+  .angelito-img {
+    position: fixed;
+    top: 5vh;
+    left: 3vh;
+    height: 30vh;
+    transition:
+      transform 2s ease,
+      opacity 1s ease;
+  }
 
-      <div
-        class="absolute top-[1.5vh] px-[1.5vh] left-0 w-full h-[9vh] flex flex-col justify-center overflow-hidden"
-      >
-        <p class="leading-none f10-latino">Lorem ipsum dolor sit amet.</p>
-      </div>
-    </div>
-  </div> -->
+  .angelito-img.tour {
+    transform: translate(calc(50vw - 3vw), calc(95vh - 300px));
+  }
+  .angelito-img.disapearing {
+    transform: scale(0);
+    opacity: 0;
+    transform: translate(calc(50vw - 3vw), calc(95vh - 300px));
+    /* top: calc(95vh - 300px);
+    left: 47vw; */
+  }
 
-  <!-- ANGELITO -->
-  <!-- <div class="w-fit h-2/6">
-    <img
-      class="w-5/6 h-full object-contain scale-x-[-1]"
-      alt="ANGELITO"
-      src="/images/PERSONAJES/ANGELITO.webp"
-    />
-  </div> -->
-</div>
+  /*  */
+
+  .angelita-img {
+    position: fixed;
+    top: 40vh;
+    left: 3vh;
+    height: 30vh;
+    transition:
+      transform 2s ease,
+      opacity 1s ease;
+  }
+
+  .angelita-img.tour {
+    transform: translate(87vw, calc(-3vh));
+  }
+  .angelita-img.bouncing {
+    animation: bounceSmooth 2s infinite;
+  }
+  /* .dialog-img.bouncing {
+    animation: bounceSmooth 2s infinite;
+  } */
+
+  @keyframes bounceSmooth {
+    0%,
+    100% {
+      transform: translate(87vw, calc(-3vh));
+    }
+    50% {
+      transform: translate(87vw, calc(-3vh - 10px));
+    }
+  }
+</style>

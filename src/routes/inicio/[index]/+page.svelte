@@ -44,7 +44,7 @@
       );
       await setDoc(userRef, { lastDay: index + 1 }, { merge: true });
     } catch (err) {
-      console.log("There was an error saving your information");
+      console.log("There was an error saving your information", err);
     }
   }
 </script>

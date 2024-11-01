@@ -164,6 +164,7 @@ input:-webkit-autofill:focus{
 .btnp {
   text-transform: uppercase;
   min-width: 9rem;
+  min-height: 2rem;
   border-radius: 0.75rem /* 12px */;
   margin-top: 1.25rem /* 20px */;
   padding-left: 1.25rem /* 20px */;
@@ -274,6 +275,9 @@ input:-webkit-autofill:focus{
 
 /* sm */
 @media screen and (min-width: 640px) {
+  /* .border-media {
+    border: 10px solid #226f54;
+  } */
   .f1-ivy {
     font-size: 2.8rem;
   }
@@ -299,10 +303,10 @@ input:-webkit-autofill:focus{
     font-size: 9rem;
   }
   .f9-latino {
-    font-size: 2vw
+    font-size: 2vw;
   }
   .f10-latino {
-    font-size: 2vw
+    font-size: 2vw;
   }
 }
 
@@ -386,10 +390,10 @@ input:-webkit-autofill:focus{
     border: 10px solid #226f54;
   } */
   .f3-ivy {
-    font-size: 3.5rem;
+    font-size: 2.8vw;
   }
   .f4-latino {
-    font-size: 3.5rem;
+    font-size: 2.8vw;
   }
   .f5-latino {
     font-size: 2.5vw;
@@ -398,13 +402,13 @@ input:-webkit-autofill:focus{
     font-size: 2.5vw;
   }
   .f8-ivy {
-    font-size: 12rem;
+    font-size: 9vw;
   }
   .f9-latino {
-    font-size: 1.5vw
+    font-size: 1.5vw;
   }
   .f10-latino {
-    font-size: 1.5vw
+    font-size: 1.5vw;
   }
 }
 

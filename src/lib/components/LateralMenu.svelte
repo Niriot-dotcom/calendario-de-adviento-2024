@@ -21,7 +21,7 @@
     />
   </Popover.Trigger>
   <Popover.Content
-    class="z-0 ml-6 mt-3 rounded-xl absolute top-0 left-0 bg-white w-fit md:w-56 lg:w-96 text-ared"
+    class="z-0 ml-6 mt-3 rounded-xl absolute top-0 left-0 bg-white w-fit text-ared"
   >
     <!-- DESCARGA -->
     <div class="text-left ml-2 md:ml-1 mt-5 md:mt-1 mb-5">
@@ -39,7 +39,7 @@
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
-          <p class="f9-latino">Descargar calendario PDF</p>
+          <p class="f9-latino text-nowrap">Descargar calendario PDF</p>
         </a>
 
         <a
@@ -53,7 +53,7 @@
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
-          <p class="f9-latino">Descargar coloreables</p>
+          <p class="f9-latino text-nowrap">Descargar coloreables</p>
         </a>
       </div>
     </div>
@@ -78,7 +78,7 @@
 
     <Popover.Close
       on:click={handleCloseSesion}
-      class="z-50 f9-latino w-full mb-5 rounded-xl border border-ared mt-5 px-3 py-1 hover:text-white hover:bg-ared transition-all ease-linear duration-200"
+      class="z-50 f9-latino w-full mb-5 rounded-xl border border-ared flex items-center justify-center text-center mt-5 px-3 py-1 hover:text-white hover:bg-ared transition-all ease-linear duration-200"
     >
       CERRAR SESIÓN
     </Popover.Close>
