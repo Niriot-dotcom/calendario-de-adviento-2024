@@ -19,8 +19,7 @@ export interface IAuthStore {
 export const AuthStore: Writable<IAuthStore> = writable({
   isLoading: true,
   currentUser: null,
-  currentDay: 25,
-  // currentDay: new Date().getDate(),
+  currentDay: new Date().getDate(),
   data: {
     username: "",
     email: "",
@@ -42,15 +41,15 @@ export const AuthHandlers = {
   },
 
   // TODO?
-  resetPassword: async (email: string) => {
-    console.log("WE ARE HERE", email);
-    if (!email) {
-      console.log("inHERE");
-      return;
-    }
-    await sendPasswordResetEmail(auth, email);
-  },
-  updatePassword: async (password: string) => {
-    await updatePassword(auth.currentUser!, password);
-  },
+  // resetPassword: async (email: string) => {
+  //   console.log("WE ARE HERE", email);
+  //   if (!email) {
+  //     console.log("inHERE");
+  //     return;
+  //   }
+  //   await sendPasswordResetEmail(auth, email);
+  // },
+  // updatePassword: async (password: string) => {
+  //   await updatePassword(auth.currentUser!, password);
+  // },
 };

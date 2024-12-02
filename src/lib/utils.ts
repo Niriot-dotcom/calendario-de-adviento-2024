@@ -7,6 +7,9 @@ import { COLLECTIONS, type USER_SCHEMA } from "./constants/db";
 import { db } from "./firebase/firebase.client";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
+export function capitalizeFirstLetter(word: string) {
+  return String(word).charAt(0).toUpperCase() + String(word).slice(1);
+}
 export async function emailIsUnused(email: string) {
   // let query = await db.collection('users').where("e-mail", isEqualTo: email).get();
   // const docRef = doc(db, COLLECTIONS.Usuarios, user.uid);
@@ -20,17 +23,17 @@ export async function emailIsUnused(email: string) {
   return querySnapshot.empty;
 }
 
-export function isStarAvailable(i: number) {
-  // let currentDay: number;
-  // let nextAvailableDay: number;
-  // let dataFromUser: USER_SCHEMA;
-  // AuthStore.subscribe((curr) => {
-  //   dataFromUser = curr?.data;
-  //   nextAvailableDay = dataFromUser.lastDay + 1;
-  //   currentDay = curr?.currentDay;
-  // });
-  // return i < currentDay;
-}
+// export function isStarAvailable(i: number) {
+// let currentDay: number;
+// let nextAvailableDay: number;
+// let dataFromUser: USER_SCHEMA;
+// AuthStore.subscribe((curr) => {
+//   dataFromUser = curr?.data;
+//   nextAvailableDay = dataFromUser.lastDay + 1;
+//   currentDay = curr?.currentDay;
+// });
+// return i < currentDay;
+// }
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -89,3 +92,47 @@ export const flyAndScale = (
     easing: cubicOut,
   };
 };
+
+export function isContentAvailable(currentDate): boolean {
+  // Definir el rango de fechas en UTC
+  const fechaInicioUTC = new Date("2024-12-01T00:00:00Z");
+  const fechaFinUTC = new Date("2025-01-06T23:59:59Z");
+
+  // Procesar la fecha del servidor recibida en UTC
+  const fechaServidorUTC = new Date(currentDate);
+
+  // Obtener la zona horaria local del usuario
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  // Convertir la fecha UTC a la hora local del usuario
+  const fechaServidorLocal = new Date(
+    fechaServidorUTC.toLocaleString("en-US", { timeZone: userTimeZone })
+  );
+
+  // Convertir las fechas límite a la zona horaria local del usuario
+  const fechaInicioLocal = new Date(
+    fechaInicioUTC.toLocaleString("en-US", { timeZone: userTimeZone })
+  );
+  const fechaFinLocal = new Date(
+    fechaFinUTC.toLocaleString("en-US", { timeZone: userTimeZone })
+  );
+
+  // Verificar si la fecha del servidor local está dentro del rango
+  // return true;
+  return (
+    fechaServidorLocal >= fechaInicioLocal &&
+    fechaServidorLocal <= fechaFinLocal
+  );
+}
+
+export function isLastDayNovember(currentDate: Date) {
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const fechaServidorUTC = new Date(currentDate);
+  const fechaLocalUsuario = new Date(
+    fechaServidorUTC.toLocaleString("en-US", { timeZone: userTimeZone })
+  );
+
+  return (
+    fechaLocalUsuario.getDate() === 30 && fechaLocalUsuario.getMonth() === 10
+  );
+}

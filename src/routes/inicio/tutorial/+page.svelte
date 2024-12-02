@@ -7,6 +7,7 @@
 
   var isSafari: boolean;
   var isChrome: boolean;
+  let videoUrl: string = "/videos/GUARDAR-H.mp4";
 
   onMount(() => {
     isSafari =
@@ -19,6 +20,9 @@
       );
     isChrome =
       !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+
+    // TODO
+    // videoUrl = isSafari ? "/videos/GUARDAR-SAFARIH.mp4" : "/videos/GUARDAR-H.mp4";
   });
 </script>
 
@@ -37,7 +41,7 @@
 <div
   class="absolute inner-div box-border md:relative md:my-5 w-[calc(100%-24px)] h-full flex flex-col text-ared items-center justify-center"
 >
-  <p class="my-5 text-xl text-nowrap w-full">
+  <p class="my-5 text-xl f10-latino text-nowrap w-full">
     Agrega el calendario a tu pantalla de inicio
     <br />
     para acceder de manera rápida cada día
@@ -47,39 +51,31 @@
   <div
     class="w-11/12 sm:w-4/6 md:w-3/6 bg-ared rounded-xl flex justify-center items-center"
   >
-    <p class="text-white w-full m-3">
-      {isSafari ? "iOS" : "Chrome or something else"}
-    </p>
-    <!-- <div
-        data-poster-url={backgroundVideo.replace("mp4", "jpg")}
-        data-video-urls="{backgroundVideo},{backgroundVideo.replace(
+    <!-- data-poster-url={videoUrl.replace("mp4", "jpg")}
+  data-video-urls="{videoUrl},{videoUrl.replace('mp4', 'webm')}" -->
+    <div
+      data-video-urls={videoUrl}
+      data-autoplay="true"
+      data-loop="true"
+      data-wf-ignore="true"
+      class="w-full h-full"
+    >
+      <!-- style="background-image: url(&quot;{videoUrl.replace(
           'mp4',
-          'webm'
-        )}"
-        data-autoplay="true"
-        data-loop="true"
+          'jpg'
+        )}&quot;)" -->
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
         data-wf-ignore="true"
-        class="w-full h-full"
+        class="w-full h-full object-cover"
       >
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          style="background-image: url(&quot;{backgroundVideo.replace(
-            'mp4',
-            'jpg'
-          )}&quot;)"
-          data-wf-ignore="true"
-          class="w-full h-full object-cover"
-        >
-          <source src={backgroundVideo} data-wf-ignore="true" />
-          <source
-            src={backgroundVideo.replace("mp4", "webm")}
-            data-wf-ignore="true"
-          />
-        </video>
-      </div> -->
+        <source src={videoUrl} data-wf-ignore="true" />
+        <!-- <source src={videoUrl.replace("mp4", "webm")} data-wf-ignore="true" /> -->
+      </video>
+    </div>
   </div>
 </div>
 

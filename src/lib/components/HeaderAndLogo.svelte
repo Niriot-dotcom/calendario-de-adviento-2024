@@ -1,15 +1,18 @@
 <script lang="ts">
+  export let hideLogo: boolean = false;
   export let hideText: boolean = false;
 </script>
 
 <!-- LOGO -->
-<div class="h-[7vh] md:h-[10vh] my-[1vh] z-10">
-  <img
-    class="w-full h-full object-contain"
-    alt="LOGO VIANNEY INVIERNO"
-    src="/images/ELEMENTOS/LOGO-MORADO.webp"
-  />
-</div>
+{#if !hideLogo}
+  <div class="h-[7vh] md:h-[10vh] my-[1vh] z-10">
+    <img
+      class="w-full h-full object-contain"
+      alt="LOGO VIANNEY INVIERNO"
+      src="/images/ELEMENTOS/LOGO-MORADO.webp"
+    />
+  </div>
+{/if}
 
 <!-- HEADER -->
 {#if !hideText}

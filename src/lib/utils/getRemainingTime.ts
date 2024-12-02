@@ -58,7 +58,7 @@ export function isTomorrow(testingHours?: boolean) {
   }
 
   const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  if (daysDifference === 1) {
+  if (daysDifference === 0) {
     return true;
   }
   return false;

@@ -6,6 +6,7 @@
   import WhiteLogo from "$lib/components/WhiteLogo.svelte";
   import type { USER_SCHEMA } from "$lib/constants/db";
   import StarsTransition from "$lib/transitions/StarsTransition.svelte";
+  import { onDestroy, onMount } from "svelte";
   import { AuthStore } from "../../stores/AuthStore";
 
   let currentDay: number;
@@ -17,12 +18,38 @@
     nextAvailableDay = dataFromUser.lastDay + 1;
     currentDay = curr?.currentDay;
   });
+
+  let orientation: string;
+  const handleResize = () => {
+    if (window) {
+      orientation =
+        window.innerWidth > window.innerHeight ? "landscape" : "portrait";
+    }
+    if (orientation === "landscape") {
+      showAngelitaDialogs = true;
+    } else {
+      showAngelitaDialogs = false;
+    }
+  };
+  let showAngelitaDialogs = false;
+  // onMount(() => {
+  //   if (window) {
+  //     orientation =
+  //       window.innerWidth > window.innerHeight ? "landscape" : "portrait";
+  //     window.addEventListener("resize", handleResize);
+  //   }
+  // });
+  // onDestroy(() => {
+  //   if (window) {
+  //     window.removeEventListener("resize", handleResize);
+  //   }
+  // });
 </script>
 
 <!-- {#if $AuthStore.currentUser} -->
 <StarsTransition duration={1000}>
   <div
-    class="portrait:hidden flex w-screen h-screen bg-no-repeat inner-div box-border overflow-hidden relative flex-col text-center items-center justify-center"
+    class="portrait:hidden flex w-screen h-[100dvh] bg-no-repeat inner-div box-border overflow-hidden relative flex-col text-center items-center justify-center"
   >
     <!-- BACKGROUND TEXTURE -->
     <div
@@ -30,7 +57,9 @@
       style="background: url('/images/FONDOS/CASA.webp') no-repeat; float: left; background-size: 100vh; background-size: cover; background-position: center; scale: 100%;"
     />
 
+    <!-- {#if showAngelitaDialogs} -->
     <AngelitaDialog />
+    <!-- {/if} -->
 
     <!-- LOGO -->
     <WhiteLogo />

@@ -4,9 +4,11 @@
   import ColoreablesPDF from "$lib/assets/COLOREABLES.pdf";
   import * as Popover from "$lib/components/ui/popover";
 
-  function handleCloseSesion() {
-    window.location.href = "/";
-    AuthHandlers.logout();
+  async function handleCloseSesion() {
+    await AuthHandlers.logout();
+    if (window) {
+      window.location.href = "/";
+    }
   }
 </script>
 

@@ -1,32 +1,36 @@
-<!-- <script>
-  import Auth from "$lib/components/auth/Auth.svelte";
-</script>
-
-<Auth /> -->
-
 <script lang="ts">
   import AngelitosHomepage from "$lib/components/AngelitosHomepage.svelte";
-  import Header from "$lib/components/Header.svelte";
   import HeaderAndLogo from "$lib/components/HeaderAndLogo.svelte";
   import LaMagiaCopy from "$lib/components/LaMagiaCopy.svelte";
   import SignInUpForm from "$lib/components/SignInUpForm.svelte";
   import TimeRemaining from "$lib/components/TimeRemaining.svelte";
   import MagicTransition from "$lib/transitions/MagicTransition.svelte";
   import {
+    capitalizeFirstLetter,
+    isContentAvailable,
+    isLastDayNovember,
+  } from "$lib/utils";
+  import {
     areThereDaysLeft,
     getRemainingTime,
     isTomorrow,
   } from "$lib/utils/getRemainingTime";
+  import { AuthStore } from "../stores/AuthStore";
 
+  export let data: { currentDate: string };
   let testingHours = false;
+
+  let currentUsername: string;
+  AuthStore.subscribe((curr) => {
+    currentUsername = curr?.data.username;
+  });
 </script>
 
 <MagicTransition>
-  <HeaderAndLogo hideText />
-
   {#if !areThereDaysLeft(testingHours)}
-    <Header />
+    <HeaderAndLogo />
   {:else}
+    <HeaderAndLogo hideText />
     <LaMagiaCopy />
   {/if}
 
@@ -41,14 +45,38 @@
   </div>
 
   <div class="absolute flex flex-col bottom-0 w-full z-10">
-    {#if isTomorrow(testingHours)}
-      <div class="mt-5 text-ared">
-        <p class="f4-latino leading-none">La espera está por terminar</p>
-        <p class="f3-ivy leading-none">¡Nos vemos mañana!</p>
+    {#if currentUsername}
+      <div class="flex flex-col space-y-2 text-center items-center md:my-3">
+        <p class="f7-ivy leading-tight md:leading-[15vh] lg:leading-none">
+          ¡Hola {capitalizeFirstLetter(currentUsername.split("@")[0])}!
+        </p>
       </div>
     {/if}
 
-    {#if getRemainingTime() !== "0"}
+    {#if isLastDayNovember(data.currentDate)}
+      <div class="my-7">
+        <p class="f4-latino leading-none text-ared">
+          La espera está por terminar
+        </p>
+        <p class="f3-ivy leading-none text-ared">¡Nos vemos mañana!</p>
+      </div>
+    {/if}
+
+    {#if isContentAvailable(data.currentDate) && currentUsername}
+      <div
+        class="flex flex-col space-y-2 text-center items-center md:my-3 md:mb-12"
+      >
+        <a
+          href="/nombramiento"
+          class="btnp w-fit"
+          style="background-color: #226f54; border-radius: 32px;"
+        >
+          <p class="f9-latino text-white">Comenzar</p>
+        </a>
+      </div>
+    {/if}
+
+    {#if !isContentAvailable(data.currentDate)}
       <TimeRemaining bind:testingHours />
     {/if}
 
@@ -59,13 +87,17 @@
       </div>
     {/if}
 
-    <div class="mb-5 mt-1 w-5/12 md:w-6/12 mx-auto">
-      <p class="f10-latino leading-none mt-0">
-        Disponible a partir del 1 de Diciembre del 2024
-      </p>
-    </div>
+    {#if !isContentAvailable(data.currentDate)}
+      <div class="mb-5 mt-1 w-5/12 md:w-6/12 mx-auto">
+        <p class="f10-latino leading-none mt-0">
+          Disponible a partir del 1 de Diciembre del 2024
+        </p>
+      </div>
+    {/if}
 
-    <SignInUpForm />
+    {#if !currentUsername}
+      <SignInUpForm />
+    {/if}
 
     <div class="my-5 md:my-3 lg:my-5 w-7/12 md:w-4/12 lg:w-[39%] mx-auto">
       <p class="text-ared f10-latino leading-none">

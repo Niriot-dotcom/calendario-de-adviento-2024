@@ -9,7 +9,6 @@
   onMount(() => {
     const updateTimer = () => {
       timeRemaining = getRemainingTime(testingHours, secondsPassed);
-      // TODO remove secondsPassed, it is for testing chronometer
       secondsPassed -= 1;
     };
 

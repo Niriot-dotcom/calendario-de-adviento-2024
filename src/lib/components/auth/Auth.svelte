@@ -24,9 +24,6 @@
         console.log(err);
       }
     }
-    if ($AuthStore.currentUser) {
-      window.location.href = register ? "/nombramiento" : "/inicio";
-    }
   }
 </script>
 

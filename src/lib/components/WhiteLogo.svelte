@@ -1,5 +1,5 @@
 <!-- LOGO -->
-<div class="z-50 absolute top-0 right-10">
+<div class="z-50 absolute top-0 right-2 md:right-10">
   <div class="h-[10vw] md:h-[10vh] z-10">
     <img
       class="w-auto h-full opacity-70 object-contain"

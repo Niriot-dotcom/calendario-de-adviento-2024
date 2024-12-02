@@ -8,11 +8,12 @@
   import { AuthStore, AuthHandlers } from "../../../stores/AuthStore";
   import { auth } from "$lib/firebase/firebase.client";
 
+  let username = "";
   let email = "";
   let password = "";
   let confirmPass = "";
   let error = false;
-  let register = false;
+  let register = true;
   let authenticating = false;
   let errorMsg = "Hubo un error, por favor verifica tus datos";
 
@@ -20,7 +21,12 @@
     if (authenticating) {
       return;
     }
-    if (!email || !password || (register && !confirmPass)) {
+    if (
+      !email ||
+      !password ||
+      (register && !confirmPass) ||
+      (register && !username)
+    ) {
       error = true;
       return;
     }
@@ -31,10 +37,6 @@
         await AuthHandlers.signup(email, password);
       } else {
         await AuthHandlers.login(email, password);
-      }
-
-      if ($AuthStore.currentUser) {
-        window.location.href = register ? "/nombramiento" : "/inicio";
       }
     } catch (err: any) {
       console.log("err.code: ", err.code);
@@ -57,10 +59,6 @@
   async function handleLoginWithGoogle() {
     try {
       await signInWithPopup(auth, new GoogleAuthProvider());
-
-      if ($AuthStore.currentUser) {
-        window.location.href = register ? "/nombramiento" : "/inicio";
-      }
     } catch (error) {}
   }
 
@@ -70,10 +68,6 @@
         .then((result) => {
           const user = result.user;
           console.log("FB user: ", user);
-
-          if ($AuthStore.currentUser) {
-            window.location.href = register ? "/nombramiento" : "/inicio";
-          }
         })
         .catch((error) => {
           // Handle Errors here.
@@ -107,7 +101,9 @@
     />
     <span class="f6-latino">Usar Google</span>
   </button>
-  <button
+
+  <!-- DISABLE -->
+  <!-- <button
     on:click={handleLoginWithFacebook}
     class="px-5 bg-white rounded-xl w-1/2 sm:w-fit h-[3.5vh] sm:h-[5vh] md:h-[8vh] sm:pr-[3.5vw] text-nowrap flex space-x-2 items-center"
   >
@@ -117,7 +113,7 @@
       src="/images/ICONOS/facebook.png"
     />
     <span class="f6-latino">Usar Facebook</span>
-  </button>
+  </button> -->
 
   <!-- EMAIL AND PASSWORD -->
   <Dialog.Root>
@@ -151,6 +147,18 @@
 
       <div class="w-11/12 md:w-8/12">
         <form class="flex flex-col space-y-2 items-center">
+          {#if register}
+            <label class="w-full f10-latino">
+              <p class="f10-latino">Nombre</p>
+              <input
+                bind:value={username}
+                type="text"
+                placeholder="María"
+                class="vinput focus:ring-2 focus:ring-ared focus:focus:bg-gray-200"
+              />
+            </label>
+          {/if}
+
           <label class="w-full f10-latino">
             <p class="f10-latino">Correo electrónico</p>
             <input
@@ -186,7 +194,7 @@
             {#if authenticating}
               <div class="loader"></div>
             {:else}
-              <p class="f9-latino text-white">
+              <p class="f9-latino text-white flex items-center h-fit">
                 {register ? "Registrarme" : "Iniciar sesión"}
               </p>
             {/if}
