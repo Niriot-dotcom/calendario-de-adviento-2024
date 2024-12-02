@@ -31,7 +31,7 @@
       const docRef = doc(db, COLLECTIONS.Usuarios, user.uid);
       const docSnap = await getDoc(docRef);
       if (!docSnap.exists()) {
-        console.log("Creating User");
+        // console.log("Creating User");
         const userRef = doc(db, COLLECTIONS.Usuarios, user.uid);
         dataToSetToStore = {
           username:
@@ -43,7 +43,7 @@
         };
         await setDoc(userRef, dataToSetToStore, { merge: true });
       } else {
-        console.log("Fetching User");
+        // console.log("Fetching User");
         const userData: USER_SCHEMA = docSnap.data();
         dataToSetToStore = userData;
       }

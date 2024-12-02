@@ -62,29 +62,29 @@
     } catch (error) {}
   }
 
-  async function handleLoginWithFacebook() {
-    try {
-      signInWithPopup(auth, new FacebookAuthProvider())
-        .then((result) => {
-          const user = result.user;
-          console.log("FB user: ", user);
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.customData.email;
-          // The AuthCredential type that was used.
-          const credential = FacebookAuthProvider.credentialFromError(error);
+  // async function handleLoginWithFacebook() {
+  //   try {
+  //     signInWithPopup(auth, new FacebookAuthProvider())
+  //       .then((result) => {
+  //         const user = result.user;
+  //         console.log("FB user: ", user);
+  //       })
+  //       .catch((error) => {
+  //         // Handle Errors here.
+  //         const errorCode = error.code;
+  //         const errorMessage = error.message;
+  //         // The email of the user's account used.
+  //         const email = error.customData.email;
+  //         // The AuthCredential type that was used.
+  //         const credential = FacebookAuthProvider.credentialFromError(error);
 
-          // ...
-          console.log("FB error: ", error, email);
-        });
-    } catch (error) {
-      console.log("catch FB error: ", error);
-    }
-  }
+  //         // ...
+  //         console.log("FB error: ", error, email);
+  //       });
+  //   } catch (error) {
+  //     console.log("catch FB error: ", error);
+  //   }
+  // }
 </script>
 
 <div

@@ -62,9 +62,6 @@ function replaceEachString(
   angelitoName: string,
   angelitaName: string
 ) {
-  console.log("last angelitoName: ", angelitoName);
-  console.log("last angelitaName: ", angelitaName);
-
   dialog.BOLD = dialog.BOLD.replace(
     "{AngelitoName}",
     angelitoName === "" || angelitoName === null ? "Angelito" : angelitoName
