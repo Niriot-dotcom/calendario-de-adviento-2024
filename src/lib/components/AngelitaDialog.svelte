@@ -23,8 +23,6 @@
     angelitaName = curr?.data.angelitaName;
     currentDay = curr?.currentDay;
 
-    console.log("1angelitoName: ", angelitoName);
-    console.log("1angelitaName: ", angelitaName);
     dialogs = getDialogs(userDay, currentDay, angelitoName, angelitaName);
     // let lastDay = curr?.data.lastDay;
     // if (lastDay === currentDay) {
@@ -288,12 +286,12 @@
   }
 
   .angelito-img.tour {
-    transform: translate(calc(-50vw - 3vw), calc(100dvh - 300px));
+    transform: translate(calc(-50vw - 3vw), calc(150dvh - 300px));
   }
   .angelito-img.disapearing {
     transform: scale(0);
     opacity: 0;
-    transform: translate(calc(-50vw - 3vw), calc(100dvh - 300px));
+    transform: translate(calc(-50vw - 3vw), calc(150dvh - 300px));
     /* top: calc(95vh - 300px);
     left: 47vw; */
   }

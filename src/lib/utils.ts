@@ -108,6 +108,9 @@ export function isContentAvailable(currentDate): boolean {
   const fechaServidorLocal = new Date(
     fechaServidorUTC.toLocaleString("en-US", { timeZone: userTimeZone })
   );
+  console.log("currentDate: ", currentDate);
+  console.log("fechaServidorUTC: ", fechaServidorUTC);
+  console.log("fechaServidorLocal: ", fechaServidorLocal);
 
   // Convertir las fechas límite a la zona horaria local del usuario
   const fechaInicioLocal = new Date(
@@ -135,4 +138,16 @@ export function isLastDayNovember(currentDate: Date) {
   return (
     fechaLocalUsuario.getDate() === 30 && fechaLocalUsuario.getMonth() === 10
   );
+}
+
+export async function getCurrentServerDate() {
+  const zonaHorariaUsuario = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const response = await fetch(
+    `https://timeapi.io/api/time/current/zone?timeZone=${zonaHorariaUsuario}`,
+    { headers: { Accept: "application/json" } }
+  );
+  if (!response.ok) return;
+  const data = await response.json();
+  // const currentDate = data.utc_datetime; // Usamos la hora UTC de la API
+  return data.dateTime; // Usamos la hora local de la API
 }

@@ -18,6 +18,7 @@
   import { AuthStore } from "../stores/AuthStore";
 
   export let data: { currentDate: string };
+  console.log("data: ", data);
   let testingHours = false;
 
   let currentUsername: string;
@@ -50,15 +51,6 @@
         <p class="f7-ivy leading-tight md:leading-[15vh] lg:leading-none">
           ¡Hola {capitalizeFirstLetter(currentUsername.split("@")[0])}!
         </p>
-      </div>
-    {/if}
-
-    {#if isLastDayNovember(data.currentDate)}
-      <div class="my-7">
-        <p class="f4-latino leading-none text-ared">
-          La espera está por terminar
-        </p>
-        <p class="f3-ivy leading-none text-ared">¡Nos vemos mañana!</p>
       </div>
     {/if}
 

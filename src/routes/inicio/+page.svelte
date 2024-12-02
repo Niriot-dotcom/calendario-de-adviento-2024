@@ -32,18 +32,18 @@
     }
   };
   let showAngelitaDialogs = false;
-  // onMount(() => {
-  //   if (window) {
-  //     orientation =
-  //       window.innerWidth > window.innerHeight ? "landscape" : "portrait";
-  //     window.addEventListener("resize", handleResize);
-  //   }
-  // });
-  // onDestroy(() => {
-  //   if (window) {
-  //     window.removeEventListener("resize", handleResize);
-  //   }
-  // });
+  onMount(() => {
+    if (window) {
+      orientation =
+        window.innerWidth > window.innerHeight ? "landscape" : "portrait";
+      window.addEventListener("resize", handleResize);
+    }
+  });
+  onDestroy(() => {
+    if (window) {
+      window.removeEventListener("resize", handleResize);
+    }
+  });
 </script>
 
 <!-- {#if $AuthStore.currentUser} -->
@@ -57,9 +57,9 @@
       style="background: url('/images/FONDOS/CASA.webp') no-repeat; float: left; background-size: 100vh; background-size: cover; background-position: center; scale: 100%;"
     />
 
-    <!-- {#if showAngelitaDialogs} -->
-    <AngelitaDialog />
-    <!-- {/if} -->
+    {#if showAngelitaDialogs}
+      <AngelitaDialog />
+    {/if}
 
     <!-- LOGO -->
     <WhiteLogo />

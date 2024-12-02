@@ -104,11 +104,11 @@
     class="z-0 w-screen h-[100dvh] landscape:h-screen inner-div box-border overflow-hidden relative border-[12px] border-ared bg-cover flex flex-col text-center"
     style="background: url('/images/FONDOS/FONDO.webp') no-repeat;"
   >
-    <!-- {#if showContent || data.url === "/"} -->
-    <!-- <MagicTransition key={data.url} duration={1000}> -->
-    <slot />
-    <!-- </MagicTransition> -->
-    <!-- {:else}
+    {#if showContent || data.url === "/"}
+      <!-- <MagicTransition key={data.url} duration={1000}> -->
+      <slot />
+      <!-- </MagicTransition> -->
+    {:else}
       <div
         class="absolute z-0 flex justify-between w-full h-[38vh] md:h-[80vh] top-[32%] transform -translate-y-[40%]"
       >
@@ -125,6 +125,6 @@
           de 2025.
         </p>
       </div>
-    {/if} -->
+    {/if}
   </main>
 </div>

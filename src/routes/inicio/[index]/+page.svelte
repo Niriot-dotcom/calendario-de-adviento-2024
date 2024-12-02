@@ -59,7 +59,8 @@
 <WhiteLogo />
 
 <!-- IMAGENES -->
-<div class="z-0 relative w-full h-full grid grid-cols-2">
+<!-- landscape -->
+<div class="portrait:hidden z-0 relative w-full h-full grid grid-cols-2">
   <div class="w-full h-full relative flex">
     {#if showPersonajeDialog}
       <!-- PERSONAJE -->
@@ -123,6 +124,95 @@
 
           <div
             class="absolute top-[2vw] left-0 w-full h-[10vw] flex flex-col justify-center text-ared px-[2rem] overflow-hidden"
+          >
+            <p class="leading-none f6-latino">
+              {@html BUENAS_OBRAS[index].angelitaText}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANGELITA -->
+      <div
+        class="w-1/2 h-full animate-bounce-smooth"
+        in:fly={{ x: 300, duration: 800, opacity: 0 }}
+        out:fade
+      >
+        <img
+          class="w-5/6 h-full object-contain"
+          alt="ANGELITA"
+          src="/images/PERSONAJES/ANGELITA.webp"
+        />
+      </div>
+    {/if}
+  </div>
+</div>
+
+<!-- portrait -->
+<div class="landscape:hidden z-0 relative w-full h-full grid grid-cols-1">
+  <div class="w-full h-full relative flex">
+    {#if showPersonajeDialog}
+      <!-- PERSONAJE -->
+      <div
+        class="w-1/2 h-full animate-bounce-smooth"
+        in:fly={{ x: -300, duration: 800, opacity: 0 }}
+        out:fade
+      >
+        <div class="w-full h-full flex items-end justify-end">
+          <img
+            class="h-4/6 object-contain"
+            alt="PERSONAJE"
+            src="/images/PERSONAJES/{BUENAS_OBRAS[index].personaje}.webp"
+          />
+        </div>
+      </div>
+
+      <!-- RECUADRO -->
+      <div
+        class="h-[95%] my-auto w-1/2 relative"
+        in:fly={{ x: -300, duration: 800, opacity: 0 }}
+        out:fade
+      >
+        <img
+          class="w-full h-full object-contain"
+          alt="GLOBO PERSONAJES"
+          src="/images/ELEMENTOS/GLOBO PERSONAJES.webp"
+        />
+
+        <div
+          class="absolute top-1/2 left-1/2 w-full h-full flex justify-center flex-col transform -translate-x-1/2 -translate-y-1/2"
+        >
+          <p class="f6-latino leading-none px-5">
+            La buena acción<br />del día es:
+          </p>
+          <p class="f5-latino leading-none px-8">
+            {BUENAS_OBRAS[index].description}
+          </p>
+        </div>
+      </div>
+    {/if}
+  </div>
+
+  <!-- SEPARATOR -->
+  <!-- <div class="w-full"></div> -->
+
+  <div class="w-full h-full relative flex">
+    {#if showAngelitaDialog}
+      <!-- GLOBO ANGELITA -->
+      <div
+        class="w-6/12 h-full relative"
+        in:fly={{ x: 300, duration: 800, opacity: 0 }}
+        out:fade
+      >
+        <div class="w-full h-fit relative">
+          <img
+            class="w-full h-full object-contain"
+            alt="GLOBO PERSONAJES"
+            src="/images/ELEMENTOS/GLOBO ANGELITA.webp"
+          />
+
+          <div
+            class="absolute top-[2vh] left-0 w-full h-[11vh] flex flex-col justify-center px-[2rem] overflow-hidden"
           >
             <p class="leading-none f6-latino">
               {@html BUENAS_OBRAS[index].angelitaText}
