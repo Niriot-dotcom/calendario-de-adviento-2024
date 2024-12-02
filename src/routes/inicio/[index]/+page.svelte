@@ -12,12 +12,23 @@
 
   let showAngelitaDialog = false;
   let showPersonajeDialog = false;
+  var isSafari: boolean;
 
-  onMount(() =>
+  onMount(() => {
     setTimeout(() => {
       showAngelitaDialog = true;
-    }, 100)
-  );
+    }, 100);
+
+    isSafari =
+      /constructor/i.test(window.HTMLElement) ||
+      (function (p) {
+        return p.toString() === "[object SafariRemoteNotification]";
+      })(
+        !window["safari"] ||
+          (typeof safari !== "undefined" && window["safari"].pushNotification)
+      );
+    console.log("isSafari: ", isSafari);
+  });
 
   const toggleDialog = () => {
     showAngelitaDialog = !showAngelitaDialog;
@@ -119,11 +130,11 @@
           <img
             class="w-full h-full object-contain"
             alt="GLOBO PERSONAJES"
-            src="/images/ELEMENTOS/GLOBO ANGELITA.webp"
+            src="/images/ELEMENTOS/GLOBO ANGELITA LARGO.webp"
           />
 
           <div
-            class="absolute top-[2vw] left-0 w-full h-[10vw] flex flex-col justify-center text-ared px-[2rem] overflow-hidden"
+            class="absolute top-[9vh] left-0 w-full h-[35vh] flex flex-col justify-center px-[2rem] overflow-hidden"
           >
             <p class="leading-none f6-latino">
               {@html BUENAS_OBRAS[index].angelitaText}
@@ -169,18 +180,22 @@
 
       <!-- RECUADRO -->
       <div
-        class="h-[95%] my-auto w-1/2 relative"
+        class="h-full my-auto w-1/2 relative flex items-center justify-center"
         in:fly={{ x: -300, duration: 800, opacity: 0 }}
         out:fade
       >
-        <img
-          class="w-full h-full object-contain"
-          alt="GLOBO PERSONAJES"
-          src="/images/ELEMENTOS/GLOBO PERSONAJES.webp"
-        />
+        <div class="w-full h-full flex items-center justify-center">
+          <img
+            class="w-full h-full object-contain"
+            alt="GLOBO PERSONAJES"
+            src="/images/ELEMENTOS/GLOBO PERSONAJES.webp"
+          />
+        </div>
 
         <div
-          class="absolute top-1/2 left-1/2 w-full h-full flex justify-center flex-col transform -translate-x-1/2 -translate-y-1/2"
+          class="{isSafari
+            ? 'mt-[12vh]'
+            : ''} absolute top-1/2 left-1/2 w-full h-full flex justify-center flex-col transform -translate-x-1/2 -translate-y-1/2"
         >
           <p class="f6-latino leading-none px-5">
             La buena acción<br />del día es:

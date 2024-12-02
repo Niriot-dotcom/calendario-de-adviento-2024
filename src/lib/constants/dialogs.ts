@@ -39,7 +39,12 @@ export const DIALOGS: Record<string, IDialog[]> = {
     {
       SIZE: " LARGO",
       BOLD: "",
-      NORMAL: `Realiza las buenas acciones diarias durante el Adviento para ayudarme a regresar a casa con {AngelitoName}`,
+      NORMAL: `Realiza las buenas acciones diarias durante el Adviento`,
+    },
+    {
+      SIZE: " LARGO",
+      BOLD: "",
+      NORMAL: `para ayudarme a regresar a casa con {AngelitoName}`,
     },
     {
       SIZE: " LARGO",

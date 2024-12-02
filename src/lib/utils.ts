@@ -151,3 +151,15 @@ export async function getCurrentServerDate() {
   // const currentDate = data.utc_datetime; // Usamos la hora UTC de la API
   return data.dateTime; // Usamos la hora local de la API
 }
+
+export function isSafari() {
+  let isSafari =
+    /constructor/i.test(window.HTMLElement) ||
+    (function (p) {
+      return p.toString() === "[object SafariRemoteNotification]";
+    })(
+      !window["safari"] ||
+        (typeof safari !== "undefined" && window["safari"].pushNotification)
+    );
+  return isSafari;
+}

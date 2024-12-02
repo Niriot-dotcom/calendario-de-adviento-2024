@@ -99,7 +99,7 @@
         />
       </div> -->
       <div class="f9-latino my-3 text-center flex flex-col items-center">
-        <div class="phone-icon max-w-fit h-8 mb-1">
+        <div class="phone-icon w-8 h-8 mb-1">
           <img
             class="w-fit h-full md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
             alt="ICONO PLAY"

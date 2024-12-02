@@ -37,7 +37,7 @@
           class="flex space-x-2 items-center mb-1"
         >
           <img
-            class="w-fit h-3 md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
+            class="w-3 h-3 md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
@@ -51,7 +51,7 @@
           class="flex space-x-2 items-center"
         >
           <img
-            class="w-fit h-3 md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
+            class="w-3 h-3 md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
             alt="ICONO DESCARGAR"
             src="/images/ICONOS/DESCARGAR.webp"
           />
@@ -67,7 +67,7 @@
       <Popover.Close>
         <a href="/inicio/tutorial" class="flex space-x-2 items-center">
           <img
-            class="w-fit h-3 md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
+            class="w-3 h-3 md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
             alt="ICONO PLAY"
             src="/images/ICONOS/TUTORIAL.webp"
           />

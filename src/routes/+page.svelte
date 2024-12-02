@@ -36,7 +36,7 @@
   {/if}
 
   <div
-    class="absolute z-0 flex justify-between w-full h-[38vh] md:h-[80vh] top-[32%] transform -translate-y-[40%]"
+    class="absolute z-0 flex justify-between w-full h-[38vh] md:h-[80vh] top-[40%] transform -translate-y-[40%]"
   >
     <AngelitosHomepage
       isAngelitoFirst
