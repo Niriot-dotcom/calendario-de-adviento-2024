@@ -1,8 +1,21 @@
 import { redirect } from "@sveltejs/kit";
 
 export async function load({ params }) {
+  const zonaHorariaUsuario = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const accessDay = parseInt(params.index);
-  const fechaActual = new Date();
+  const response = await fetch(
+    `https://timeapi.io/api/time/current/zone?timeZone=${zonaHorariaUsuario}`,
+    { headers: { Accept: "application/json" } }
+  );
+
+  // if (!response.ok) {
+  //   throw error(500, "Error al obtener la fecha del servidor");
+  // }
+
+  const data = await response.json();
+  // const fechaActual = data.utc_datetime; // Usamos la hora UTC de la API
+
+  const fechaActual = new Date(data.dateTime); // Usamos la hora local de la API
   const diaActual = fechaActual.getDate(); // Día actual del mes
   const mesActual = fechaActual.getMonth(); // Mes actual (11 = diciembre)
 
