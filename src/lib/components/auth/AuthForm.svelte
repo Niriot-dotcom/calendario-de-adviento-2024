@@ -99,7 +99,7 @@
       alt="GOOGLE ICON"
       src="/images/ICONOS/google.webp"
     />
-    <span class="f6-latino">Usar Google</span>
+    <span class="f6-latino text-nowrap">Usar Google</span>
   </button>
 
   <!-- DISABLE -->
@@ -125,7 +125,7 @@
         alt="EMAIL ICON"
         src="/images/ICONOS/email.webp"
       />
-      <span class="f6-latino">Usar mi correo</span>
+      <span class="f6-latino text-nowrap">Usar mi correo</span>
     </Dialog.Trigger>
 
     <Dialog.Content
