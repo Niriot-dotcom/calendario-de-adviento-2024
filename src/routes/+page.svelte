@@ -21,8 +21,10 @@
   let testingHours = false;
 
   let currentUsername: string;
+  let userDay: number;
   AuthStore.subscribe((curr) => {
     currentUsername = curr?.data.username;
+    userDay = curr?.data.lastDay;
   });
 </script>
 
@@ -58,7 +60,7 @@
         class="flex flex-col space-y-2 text-center items-center md:my-3 md:mb-12"
       >
         <a
-          href="/nombramiento"
+          href={userDay <= 0 ? "/nombramiento" : "/inicio"}
           class="btnp w-fit"
           style="background-color: #226f54; border-radius: 32px;"
         >
