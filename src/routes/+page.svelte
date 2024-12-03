@@ -64,7 +64,7 @@
         class="flex flex-col space-y-2 text-center items-center md:my-3 md:mb-12"
       >
         <a
-          href={userDay <= 0 || angelitaName === "" || angelitoName === ""
+          href={angelitaName === "" || angelitoName === ""
             ? "/nombramiento"
             : "/inicio"}
           class="btnp w-fit"
