@@ -22,9 +22,13 @@
 
   let currentUsername: string;
   let userDay: number;
+  let angelitaName: string;
+  let angelitoName: string;
   AuthStore.subscribe((curr) => {
     currentUsername = curr?.data.username;
     userDay = curr?.data.lastDay;
+    angelitaName = curr?.data.angelitaName;
+    angelitoName = curr?.data.angelitoName;
   });
 </script>
 
@@ -60,7 +64,9 @@
         class="flex flex-col space-y-2 text-center items-center md:my-3 md:mb-12"
       >
         <a
-          href={userDay <= 0 ? "/nombramiento" : "/inicio"}
+          href={userDay <= 0 || angelitaName === "" || angelitoName === ""
+            ? "/nombramiento"
+            : "/inicio"}
           class="btnp w-fit"
           style="background-color: #226f54; border-radius: 32px;"
         >
