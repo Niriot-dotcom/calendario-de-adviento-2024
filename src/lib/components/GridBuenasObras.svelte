@@ -24,7 +24,7 @@
       {#if number <= currentDay && number <= nextAvailableDay}
         <button
           on:click={() => goto(`/inicio/${number}`)}
-          disabled={number !== nextAvailableDay || number > currentDay}
+          disabled={number > currentDay}
           class="w-full h-full relative"
         >
           <div
@@ -50,7 +50,7 @@
     >
       <button
         on:click={() => goto(`/inicio/3`)}
-        disabled={3 !== nextAvailableDay || 3 > currentDay}
+        disabled={3 > currentDay}
         class="w-full h-full relative self-end"
       >
         {#if 3 <= currentDay && 3 <= nextAvailableDay}
@@ -71,7 +71,7 @@
       <div class="w-full h-full flex space-x-8">
         <button
           on:click={() => goto(`/inicio/2`)}
-          disabled={2 !== nextAvailableDay || 2 > currentDay}
+          disabled={2 > currentDay}
           class="w-1/2 h-full relative"
         >
           {#if 2 <= currentDay && 2 <= nextAvailableDay}
@@ -91,7 +91,7 @@
 
         <button
           on:click={() => goto(`/inicio/4`)}
-          disabled={4 !== nextAvailableDay || 4 > currentDay}
+          disabled={4 > currentDay}
           class="w-1/2 h-full relative"
         >
           {#if 4 <= currentDay && 4 <= nextAvailableDay}
@@ -116,7 +116,7 @@
         {#each [8, 9, 10, 11] as number, i}
           <button
             on:click={() => goto(`/inicio/${number}`)}
-            disabled={number !== nextAvailableDay || number > currentDay}
+            disabled={number > currentDay}
             class="relative w-full h-full"
           >
             {#if number <= currentDay && number <= nextAvailableDay}
@@ -139,7 +139,7 @@
         {#each [14, 15, 16, 17] as number, i}
           <button
             on:click={() => goto(`/inicio/${number}`)}
-            disabled={number !== nextAvailableDay || number > currentDay}
+            disabled={number > currentDay}
             class="relative w-full h-full"
           >
             {#if number <= currentDay && number <= nextAvailableDay}
@@ -164,7 +164,7 @@
       {#each [22, 25, 21] as number, i}
         <button
           on:click={() => goto(`/inicio/${number}`)}
-          disabled={number !== nextAvailableDay || number > currentDay}
+          disabled={number > currentDay}
           class="w-full h-5/6 relative {number === 25
             ? 'self-end'
             : ''} order-{i}"
@@ -195,7 +195,7 @@
       {#if number <= currentDay && number <= nextAvailableDay}
         <button
           on:click={() => goto(`/inicio/${number}`)}
-          disabled={number !== nextAvailableDay || number > currentDay}
+          disabled={number > currentDay}
           class="w-full h-full relative"
         >
           <div

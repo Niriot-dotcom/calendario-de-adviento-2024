@@ -27,7 +27,6 @@
         !window["safari"] ||
           (typeof safari !== "undefined" && window["safari"].pushNotification)
       );
-    console.log("isSafari: ", isSafari);
   });
 
   const toggleDialog = () => {
@@ -40,7 +39,7 @@
   async function updateDay() {
     try {
       let newData: USER_SCHEMA = $AuthStore.data;
-      newData.lastDay = index + 1;
+      newData.lastDay = Math.max(newData.lastDay, index + 1);
       AuthStore.update((curr) => {
         return {
           ...curr,
@@ -227,7 +226,7 @@
           />
 
           <div
-            class="absolute top-[2vh] left-0 w-full h-[11vh] flex flex-col justify-center px-[2rem] overflow-hidden"
+            class="absolute top-[1vh] left-0 w-full h-[11vh] flex flex-col justify-center px-[2rem] overflow-hidden"
           >
             <p class="leading-none f6-latino">
               {@html BUENAS_OBRAS[index].angelitaText}

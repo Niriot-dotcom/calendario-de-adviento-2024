@@ -91,13 +91,6 @@
     <LateralMenu />
 
     <div class="flex w-full space-x-2 items-center justify-center">
-      <!-- <div class="phone-icon max-w-full h-8">
-        <img
-          class="w-fit h-full md:w-4 md:h-4 lg:w-8 lg:h-8 object-cover cursor-pointer"
-          alt="ICONO PLAY"
-          src="/images/ICONOS/ROTAR_CELULAR.png"
-        />
-      </div> -->
       <div class="f9-latino my-3 text-center flex flex-col items-center">
         <div class="phone-icon w-8 h-8 mb-1">
           <img
@@ -117,7 +110,7 @@
       {#each { length: 25 } as _, i}
         <button
           on:click={() => goto(`/inicio/${i + 1}`)}
-          disabled={i + 1 !== nextAvailableDay || i + 1 > currentDay}
+          disabled={i + 1 > currentDay}
           class="w-[15vw] h-[15vw] relative rounded-xl shadow-md {i < currentDay
             ? 'bg-white'
             : 'bg-gray-300'}"
