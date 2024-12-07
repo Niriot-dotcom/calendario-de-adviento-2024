@@ -108,9 +108,9 @@ export function isContentAvailable(currentDate): boolean {
   const fechaServidorLocal = new Date(
     fechaServidorUTC.toLocaleString("en-US", { timeZone: userTimeZone })
   );
-  console.log("currentDate: ", currentDate);
-  console.log("fechaServidorUTC: ", fechaServidorUTC);
-  console.log("fechaServidorLocal: ", fechaServidorLocal);
+  // console.log("currentDate: ", currentDate);
+  // console.log("fechaServidorUTC: ", fechaServidorUTC);
+  // console.log("fechaServidorLocal: ", fechaServidorLocal);
 
   // Convertir las fechas límite a la zona horaria local del usuario
   const fechaInicioLocal = new Date(

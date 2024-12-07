@@ -28,7 +28,7 @@ export const BUENAS_OBRAS = [
     personaje: "GALLETA",
     description: "Llamar a un familiar para decirle cuánto lo quieres.",
     angelitaText:
-      "Dejemos que el amor navideño brille a través de nuestras palabras",
+      "Dejemos que<br/>el amor navideño brille a través de nuestras palabras",
   },
   {
     day: 6,

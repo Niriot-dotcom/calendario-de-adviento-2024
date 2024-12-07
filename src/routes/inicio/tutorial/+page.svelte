@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
   import LateralMenu from "$lib/components/LateralMenu.svelte";
   import NextButton from "$lib/components/NextButton.svelte";
   import WhiteLogo from "$lib/components/WhiteLogo.svelte";
@@ -7,30 +6,55 @@
 
   var isSafari: boolean;
   var isChrome: boolean;
-  let videoUrl: string = "/videos/GUARDAR-H.mp4";
+  let videoUrl: string;
+  // let videoUrl: string = "/videos/GUARDAR-H.mp4";
 
   onMount(() => {
-    isSafari =
-      /constructor/i.test(window.HTMLElement) ||
-      (function (p) {
-        return p.toString() === "[object SafariRemoteNotification]";
-      })(
-        !window["safari"] ||
-          (typeof safari !== "undefined" && window["safari"].pushNotification)
-      );
-    isChrome =
-      !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+    // isSafari =
+    //   /constructor/i.test(window.HTMLElement) ||
+    //   (function (p) {
+    //     return p.toString() === "[object SafariRemoteNotification]";
+    //   })(
+    //     !window["safari"] ||
+    //       (typeof safari !== "undefined" && window["safari"].pushNotification)
+    //   );
+    // isChrome =
+    //   !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
+    const userAgent = navigator.userAgent;
+    isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
     // TODO
-    // videoUrl = isSafari ? "/videos/GUARDAR-SAFARIH.mp4" : "/videos/GUARDAR-H.mp4";
+    videoUrl = isSafari ? "/videos/TUTORIAL-IOS.mp4" : "/videos/GUARDAR-H.mp4";
+
+    // enable autoplay
+    setTimeout(() => {
+      const videoElement = document.querySelector("video");
+      videoElement!.muted = true; // Ensure it's muted
+      videoElement!.playsInline = true; // Ensure inline playback
+      videoElement!.play().catch((error) => {
+        console.error("Autoplay failed:", error);
+      });
+    }, 1000);
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.querySelector("video");
+    video!.muted = true;
+    video!.playsInline = true;
+
+    // Attempt autoplay
+    video!.play().catch(() => {
+      // Fallback: Start video on user interaction
+      document.addEventListener(
+        "click",
+        () => {
+          video!.play();
+        },
+        { once: true }
+      );
+    });
   });
 </script>
-
-<!-- BACKGROUND TEXTURE -->
-<!-- <div
-  class="w-full h-screen md:h-screen absolute inner-div box-border overflow-y-hidden bg-cover opacity-90"
-  style="background: url('/images/FONDOS/FONDO.webp') no-repeat;"
-/> -->
 
 <!-- LOGO -->
 <WhiteLogo />
@@ -69,7 +93,8 @@
         loop
         muted
         playsinline
-        data-wf-ignore="true"
+        preload="auto"
+        controls={false}
         class="w-full h-full object-contain rounded-xl"
       >
         <source src={videoUrl} data-wf-ignore="true" />

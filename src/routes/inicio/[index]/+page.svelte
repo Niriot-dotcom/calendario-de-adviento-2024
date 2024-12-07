@@ -62,7 +62,8 @@
 <!-- BACKGROUND TEXTURE -->
 <div
   class="w-full h-screen md:h-screen absolute inner-div box-border overflow-y-hidden bg-cover opacity-70"
-  style="background: url('/images/FONDOS/ESCENARIO_1.webp') no-repeat; float: left; background-size: 100vw; background-size: cover; background-position: center;"
+  style="background: url('/images/FONDOS/ESCENARIO_{index %
+    2}.webp') no-repeat; float: left; background-size: 100vw; background-size: cover; background-position: center;"
 />
 
 <!-- LOGO -->
